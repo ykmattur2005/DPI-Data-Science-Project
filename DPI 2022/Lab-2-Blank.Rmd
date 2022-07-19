@@ -1,0 +1,158 @@
+---
+title: "Lab Tidyverse"
+author: "Abhi Thanvi, Paul Holaway"
+date: "June 22nd, 2022"
+output: pdf_document
+toc: True
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+\newpage
+
+# Lab Tidyverse
+
+## Welcome
+
+Just like learning a new spoken language, you will not learn the language without practice. Labs are an important part of this course. Collaboration on labs is **extremely encouraged**. If you find yourself stuck for more than a few minutes, ask a neighbor or course staff for help. When you are giving help to your neighbor, explain the **idea and approach** to the problem without sharing the answer itself so they can figure it out on their own. This will be better for them and for you. For them because it will stick more and they will have a better understanding of the concept. For you because if you can explain it to other students, that means you understand it better too.
+
+## Importing Datasets
+
+RStudio allows you to import data sets in a very methodical and simple way.
+
+1. **CSV File**, is a file type that has values separated by commas.
+  - Each value after a comma in a CSV file maps to a column in the data frame.
+  - Each row in a CSV file maps to a row in the data frame.
+  - In our class, we will be mostly using CSV files for our data sets.
+  
+2. **Excel Spreadsheets**, is something familiar with and basically represents a data set on a pretty software.
+  - This is similar to a CSV file in terms that Excel also uses rows and columns to organize the data set.
+  - We will not be using much of Excel in this course, but it never hurts to be a little familiar with it.
+
+3. **Data Set vs Data Frame?**, this question has a very technical answer, but let's boil it down to something simple.
+  - Data set is any set of data and it could structured (i.e. rows/column in Excel, JSON, CSV, etc.) or unstructured (i.e. regular text files, emails, etc.). Unstructured data is something we won't deal with, since it is quite tedious and complicated to process. 
+  - Data frame is a structure in which a structured data set could be easily shaped into. Think of it like an actual frame of connect4. The data are like the coins, and the frame is structured in rows and columns that you can put yours coins into. 
+  - Usually, we need to import our data sets and store it into a data frame to analyze and manipulate data for our use-case.
+
+## Importing Datasets in RStudio
+
+Importing a data set in RStudio is very simple. In the top right window (a.k.a the Local Environment Window), you can see the drop down titled `Import Dataset`. When you click it, you will see bunch of options of the locations you would like to import your data from. You would be familiar with Excel as a name, but we will be using `From Text (base)...` option as we are importing a CSV file. This should be the first option on the drop down. 
+
+Once you choose it, it should open a window to ask you to choose a file. Now all you need to do is find the file we downloaded named `MLB_Batters.csv`.
+
+RStudio will pop up a window asking for Name and bunch of other information. All we need to do is:
+
+1. Change the name to whatever you like.
+2. Make Heading -> 'Yes' (it will be a 'No' by default)
+3. Check the box that says `String as Factors`
+
+Now you should see that the data set is imported as a data frame on RStudio. It should remind you of an Excel spreadsheet in terms of its table structure. On the top right window, you can the data set being imported with its count of observations. (row count) and count of variables (column count). 
+
+If you need any help finding this file you downloaded, please feel free ask for help from your group members or the instructors. Remember we are trying to learn, collaborate and have fun :)
+
+
+## Problem 1
+
+### Part 1: Importing Tidyverse
+```{r}
+library(tidyverse)
+```
+
+### Part 2: Reading the CSV
+
+In the next cell, copy and past the `RStudio` import code for the `MLB_Batters` data set.
+```{r}
+MLB_Batters_csv <- read.csv("~/Desktop/DPI 2022/MLB_Batters.csv", stringsAsFactors=TRUE)
+```
+
+There may or may not be an import glitch with this data set. If you end up with the first variable being `ï..Player`, copy and paste the line of code below and rerun the cell above.  
+`MLB_Batters = MLB_Batters %>% rename(Player = "ï..Player")`   
+In this cell, make sure that you can read the Data frame by printing it. Print out the first ten observations for the sanity of your instructors when they grade this.
+```{r}
+head(MLB_Batters_csv, 10)
+```
+### Things to look out for!
+As a good data scientist, we always want to have a sense of what the data set or our data frame contains. Before we analyze, its a good practice to have a broad idea of the shape or value our data contains.
+
+### Reflection Question
+
+**Question:** How many rows and columns does our data set have? Type out the answer in the format `m` rows and `n` columns.  
+
+      171 rows and 23 columns
+
+### Think About...
+What the column names represent and how it might us help answer some questions? Discuss this with your group and write at least three sentences about what your group discussed.   
+
+      The column names represent different statistics about the batters (for example, their names, age, batting averages, etc). This is helpful, because we can analyze correlations between the statistics (for example, what relation does age have with batting average?). In addition, even though there are a LOT of data values, having all of our data organized in columns and rows can help us filter out unhelpful or unusable data in order to focus on only the data that matters to our specific statistical analyses.
+
+## Problem 2
+
+### Part 1: Summary
+
+Now that we have imported the data set and have a very general idea of what it looks like. Let's get a more elaborate summary of our data. In the below cell, find the summary of our data set.
+```{r}
+summary(MLB_Batters_csv)
+```
+
+Whoa!!! Now that's a lot of information for Abhi to figure out! He is not good with numbers, can you help him out? Are there any ways we can filter some categories out? 
+
+### Part 2: Helping Abhi Out...
+
+Abhi usually likes looking at how [old](https://www.youtube.com/watch?v=0N_ReGpaXpQ) people are, don't ask why! Is there anyway we could filter out the Players and Ages from the data set and just show that? (Hint: The answer is yes, we can.)
+```{r}
+head(MLB_Batters_csv %>% select(c("Player", "Age")), 10)
+```
+
+## Problem 3
+
+### Part 1: Abhi has to say something...
+
+"Hey, this is Abhi! Thank you ladies (and gentlemen) for helping me look at the ages of these players. Can you actually just give me 25 people, but also with their Batting Average (I think it's called AVG in the data set). 
+```{r}
+head(MLB_Batters_csv %>% select(c("Player","AVG")), 25)
+```
+
+### Part 2: Old is Gold!
+We want to recognize some of the experienced players and we just want to see the players above 30 years old. Filter out the people from your last section (Part 3: Abhi has to say something...), we want to see the people above 30 years old. We do not wish to see people that have just celebrated their 30th birthday! Print out the first 25 players.
+
+Hints:
+
+1. This should have more than 50 people in it. 
+2. You can call this new data: temp_old
+```{r}
+temp_old = MLB_Batters_csv %>% filter(Age > 30)
+head(temp_old, 25)
+```
+
+### Part 3: James the Popular!
+We think the most common first name for male in United States is James! You can Google it and let us know! 
+Can you filter the people who are named James from the people you selected being over 30 year old? Again, we know the answer is yes! ;)
+
+Hint: You could make a new variable and do all the filters again or use an already existing variable. We recommend the latter. 
+```{r}
+temp_old %>% filter(Player == "James")
+# there is no player who's older than 30 and named James
+```
+
+### Reflection
+
+You would have probably noticed that you did not find James! That is okay, he is not lost...hopefully! The reason is that when you search for "James", our data set contains columns with First and Last Name. Therefore, when you search for only "James" it is not found. 
+
+This is very common to happen, our types of data does not match sometimes and we need to find workarounds for it. Sometimes we want to find the age of the people, but they are in string format. Sometimes we want to find if the person is a Male or Female, but the data sets has many variations like M, F, male, female, Boy, Girl, etc. As a Data Scientist, you should prepare to face these challenges that can definitely be tackled. 
+
+### BONUS: 
+Can you find a solution to Problem 3 Part 2 (James issue), you are welcome to Google it and collaborate with others. Feel free to ask instructors, but they most likely will ask you to Google it. You are always allowed to view outside sources to to grow as a Data Scientist, even in real world! We are a community helping each other out to find solutions and grow!
+
+Type your solution into the R code chunk to the James problem if you figure it out! :)
+```{r Bonus}
+MLB_Batters_csv %>% filter(substr(Player, 1, 5) == "James")
+# since there's no players named James who are older than 30, we'll extract this info from the original file (not the one filtered for just players older than 30)
+```
+
+## Submission
+Once you have finished your lab...
+
+1. Go to the top left and click `File` and `Save`.
+2. Click on the `Knit` button to convert this file to a PDF.
+3. Submit **BOTH** the `.Rmd` file and `.pdf` file to Blackboard by 11:59 PM tonight.

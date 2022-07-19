@@ -1,0 +1,193 @@
+Name,Major,Year,Phone,Computer,Straw,Shoe Size,Pets,Hot Dog,Streaming,Prior Programming,Season,Statistics Courses,Programming Courses,Study Hours,Siblings,Sleep,Shoes,Texts,Personality,Zodiac Sign
+Mathilde,Community Health & Chemistry,Senior,iPhone,Windows-based computer,1,9,0,Yes,Netflix,No,Fall,3,0,3,1,8,10,7,Introvert,Sagittarius
+Luke,Stats & CS,Sophomore,Android,Windows-based computer,1,9.5,0,No,"Twitch, Youtube",Yes,Spring,4,2,4,1,6.5,4,15,Introvert,Gemini
+Johnny,ETMAS,Junior,iPhone,Mac OS X-based computer,1,10,2,No,"Netflix, Youtube",No,Fall,1,0,2,1,7,10,4,Introvert,Leo
+miller,stat/data science,Freshman,iPhone,Mac OS X-based computer,1,10,2,No,"Netflix, HBO Max",Yes,Summer,0,2,2,2,6,6,12,Extrovert,Sagittarius
+Tri,CS+Math,Junior,Android,Windows-based computer,2,10,0,Yes,"Twitch, Youtube",Yes,Fall,3,6,3,2,6,1,0,Introvert,Libra
+Dhruva,Computer Engineering,Freshman,iPhone,Windows-based computer,1,10,0,No,"Netflix, Youtube",Yes,Summer,1,3,2.5,1,6,5,17,Extrovert,Capricorn
+Jeffrey,Information Science,Freshman,iPhone,Windows-based computer,1,10.5,1,No,"Hulu, Netflix, HBO Max, Youtube",Yes,Spring,0,4,2,1,8,8,50,Introvert,Cancer
+Josue,Business,Senior,iPhone,Mac OS X-based computer,1,10,0,No,"Hulu, Netflix, Youtube",No,Summer,2,1,3,6,7,15,8,Introvert,Virgo
+Marcel,Information Science,Junior,iPhone,Windows-based computer,1,11,1,No,"Netflix, HBO Max, Twitch, Youtube",Yes,Summer,4,4,4,1,7,6,6,Introvert,Pisces
+Odalys,Information Science,Junior,iPhone,Mac OS X-based computer,1,9.5,1,Yes,"Netflix, HBO Max, Twitch, Youtube",Yes,Summer,1,1,5,1,7,8,6,Extrovert,Gemini
+Derek,CS + Stat,Freshman,iPhone,Windows-based computer,1,10.5,2,Yes,"Netflix, HBO Max, Twitch, Youtube",Yes,Spring,1,2,2.5,1,8,4,10,Introvert,Cancer
+Aditya,Information Science,Sophomore,Android,Windows-based computer,2,8,0,No,"Hulu, Netflix, Amazon Prime, Youtube",Yes,Spring,0,1,8,1,6,12,4,Introvert,Scorpio
+Hamiz,Math,Freshman,Android,Windows-based computer,1,10.5,0,No,"Netflix, Twitch, Youtube",Yes,Fall,0,2,4,2,7,4,4,Introvert,Sagittarius
+ziyi,mathematics,Freshman,iPhone,Mac OS X-based computer,2,8.5,1,No,Youtube,No,Fall,2,0,8,0,8,10,10,Introvert,Aquarius
+Eugene,Integrative Biology,Junior,Android,Windows-based computer,1,10,1,No,"Hulu, Netflix, HBO Max, Amazon Prime",Yes,Spring,9,4,4,1,6,4,4,Introvert,Aquarius
+Elise,Statistics,Freshman,iPhone,Windows-based computer,1,12,1,No,"Netflix, Youtube",No,Winter,2,0,3,1,6,10,127,Introvert,Capricorn
+Xin,psychology,Freshman,iPhone,Mac OS X-based computer,2,6,0,No,"Amazon Prime, Youtube",Yes,Spring,1,1,3,2,7,5,6,Introvert,Aquarius
+Juan David,Statistics,Sophomore,iPhone,Mac OS X-based computer,1,11,0,No,Youtube,Yes,Winter,1,4,8,2,9,4,5,Introvert,Libra
+Jacob,Information Sciences,Junior,iPhone,Mac OS X-based computer,1,10,0,Yes,"Hulu, Netflix, HBO Max, Amazon Prime, Youtube",No,Summer,2,0,4,1,7,15,5,Extrovert,Taurus
+Paul,"Statistics, MS",Other,iPhone,Windows-based computer,1,10,1,Yes,Youtube,Yes,Summer,9,5,12,1,7,7,4,Introvert,Cancer
+Abraheem,Information Sciences,Senior,Android,Windows-based computer,2,9.5,0,Yes,"Netflix, HBO Max, Amazon Prime, Twitch, Youtube",Yes,Summer,3,2,3,6,8,3,0,Introvert,Virgo
+Jerry,Computer Science,Freshman,Android,Windows-based computer,1,9,0,Yes,"Netflix, Twitch, Youtube",Yes,Winter,1,3,3,1,7.69,6,3,Introvert,Scorpio
+Ye,Statistics,Freshman,iPhone,Windows-based computer,2,9.5,1,No,Youtube,Yes,Winter,0,1,5,2,9,5,13,Extrovert,Capricorn
+Yuchen,Information Sciences,Freshman,iPhone,Windows-based computer,2,9.5,2,Yes,Netflix,No,Fall,2,0,8,0,6,5,5,Introvert,Taurus
+Rohan,Computer Science and Stats,Sophomore,iPhone,Mac OS X-based computer,1,13,0,Yes,"Netflix, HBO Max, Youtube",Yes,Summer,4,5,9,1,8,9,20,Extrovert,Capricorn
+Tiancheng,Stat & CS,Sophomore,Android,Mac OS X-based computer,2,9,0,No,Youtube,Yes,Summer,3,3,8,0,7,6,6,Introvert,Capricorn
+Aidan,Information Science + Data Science,Freshman,iPhone,Mac OS X-based computer,1,10,0,No,"Netflix, Youtube",Yes,Summer,1,2,3,2,6,8,36,Extrovert,Leo
+Jimmy,DS+IS,Freshman,iPhone,Windows-based computer,1,10.5,0,No,"Netflix, Youtube",Yes,Fall,2,3,1,1,7,2,15,Introvert,Leo
+Claire,IS,Junior,iPhone,Mac OS X-based computer,2,6,0,No,"Netflix, Twitch, Youtube",Yes,Spring,0,6,8,2,6,2,9,Introvert,Aquarius
+Natalie,adv,Sophomore,iPhone,Mac OS X-based computer,1,10,1,No,"Hulu, Netflix, HBO Max, Youtube",No,Fall,1,0,2,3,9,20,40,Extrovert,Libra
+Dayanna,Marketing,Junior,iPhone,Mac OS X-based computer,1,7,0,No,"Hulu, Netflix, Amazon Prime, Youtube",Yes,Spring,2,1,4,1,7,10,6,Introvert,Pisces
+Riya,Info Science,Senior,iPhone,Mac OS X-based computer,2,9.5,0,Yes,"Hulu, Netflix, Youtube",Yes,Summer,1,7,5,1,8,15,7,Extrovert,Leo
+Lorena,statistics,Sophomore,iPhone,Mac OS X-based computer,1,5.5,1,No,Netflix,No,Summer,5,1,8,0,7,20,5,Introvert,Gemini
+Jakub,Mechanical Engineering,Sophomore,iPhone,Windows-based computer,1,10,0,Yes,Youtube,Yes,Winter,2,6,1,1,7,3,0,Introvert,Cancer
+Humza,Mathematics,Freshman,Android,Windows-based computer,1,8.5,0,No,"Netflix, Amazon Prime, Twitch, Youtube",Yes,Summer,1,1,5,1,7,5,2,Introvert,Aries
+Lin,Statistics,Freshman,iPhone,Mac OS X-based computer,2,7.5,1,No,"Netflix, Youtube",No,Winter,2,0,8.5,1,8,8,5,Introvert,Capricorn
+Wooseong,Information science,Freshman,iPhone,Windows-based computer,1,9.5,0,No,Youtube,Yes,Fall,2,3,4,1,8,2,3,Introvert,Aries
+Shawna Ye,Finance + Data Science,Freshman,iPhone,Mac OS X-based computer,1,8.5,1,No,Youtube,Yes,Fall,0,5,4,1,6.5,10,10,Introvert,Virgo
+Angela,Political Science,Sophomore,iPhone,Mac OS X-based computer,2,8,1,No,"Hulu, Netflix",Yes,Winter,1,2,4,1,7,10,180,Extrovert,Aries
+Josh,Political Science,Sophomore,iPhone,Mac OS X-based computer,2,11,1,No,"Hulu, Netflix, HBO Max, Youtube",No,Summer,1,0,3,1,8,7,6,Introvert,Cancer
+Vaishu,Global Health,Senior,iPhone,Windows-based computer,1,9,1,Yes,"Netflix, Amazon Prime, Youtube",Yes,Winter,5,1,4,1,8,5,6,Introvert,Leo
+Jonathan,Math & CS,Sophomore,iPhone,Mac OS X-based computer,2,9,0,No,"Netflix, Twitch, Youtube",Yes,Summer,3,3,7,1,7,2,5,Introvert,Taurus
+Kathy,Learning & Education Studies,Sophomore,iPhone,Mac OS X-based computer,2,8,0,No,"Hulu, Netflix, Twitch, Youtube",No,Spring,2,0,4,1,7,6,6,Introvert,Aquarius
+Francis,Information Sciences,Freshman,iPhone,Windows-based computer,2,10.5,0,No,"Netflix, Youtube",Yes,Spring,0,1,1,1,8,4,13,Introvert,Aries
+Rafi,Information Sciences,Junior,iPhone,Windows-based computer,1,9.5,0,No,Youtube,Yes,Fall,1,3,2,1,6,6,4,Introvert,Pisces
+Jarred,Construction Management,Sophomore,iPhone,Windows-based computer,1,13,0,No,Netflix,No,Fall,0,0,2,2,6,15,5,Extrovert,Capricorn
+Carson,mathematics and spanish,Senior,iPhone,Windows-based computer,1,12,3,Yes,"Hulu, Netflix, Youtube",Yes,Winter,4,1,2,2,6,3,15,Introvert,Pisces
+Frank,Data Science,Sophomore,iPhone,Mac OS X-based computer,2,10,7,No,"Netflix, Youtube",Yes,Summer,1,1,3,0,7,5,100,Extrovert,Taurus
+Vincent,Information Science,Freshman,Android,Windows-based computer,1,10.5,1,Yes,Youtube,Yes,Spring,0,2,2,1,7,3,5,Introvert,Aquarius
+George,Information science,Freshman,iPhone,Mac OS X-based computer,2,11,0,No,"Netflix, Youtube",Yes,Winter,0,1,1,3,7,10,5,Introvert,Gemini
+Kyle,Business,Freshman,iPhone,Mac OS X-based computer,2,10.5,0,Yes,"Netflix, HBO Max, Youtube",Yes,Summer,2,1,1,2,7,5,75,Introvert,Libra
+Evan,Information Sciences,Freshman,iPhone,Windows-based computer,1,8.5,0,No,"Hulu, Netflix, Twitch, Youtube",Yes,Summer,0,3,3,1,5,4,20,Extrovert,Leo
+clara,econometrics,Junior,iPhone,Mac OS X-based computer,1,6.5,0,No,"Netflix, Youtube",Yes,Fall,3,2,3,1,8,10,6,Introvert,Taurus
+Neil,CS + Philosophy,Sophomore,Android,Windows-based computer,1,10,1,Yes,"Hulu, Amazon Prime, Youtube",Yes,Fall,0,2,5,2,8,4,25,Introvert,Scorpio
+Sam,Information Science,Sophomore,iPhone,Windows-based computer,1,7.5,1,Yes,"Netflix, Amazon Prime, Youtube",Yes,Winter,1,3,4,1,9,10,41,Introvert,Sagittarius
+Jessica,Political Science,Senior,iPhone,Windows-based computer,1,7.5,1,No,"Hulu, Netflix, Youtube",Yes,Spring,1,4,1,1,8,30,4,Introvert,Pisces
+Aaron,CS + Advertising,Freshman,Android,Mac OS X-based computer,2,11,0,No,Youtube,Yes,Spring,1,2,2,1,7,10,3,Introvert,Leo
+Deyi,Information Science,Sophomore,Android,Mac OS X-based computer,2,11,1,No,Youtube,Yes,Fall,2,1,6,0,8,8,10,Extrovert,Leo
+Brad,Stat&CS,Sophomore,Other,Mac OS X-based computer,1,10.5,0,No,Youtube,Yes,Fall,2,3,10,0,7.5,3,50,Introvert,Sagittarius
+Dilan,Information Sciences,Freshman,iPhone,Mac OS X-based computer,1,13,0,No,"Hulu, Netflix, Youtube",Yes,Fall,2,5,1,1,7,3,30,Introvert,Sagittarius
+Justin,Computer Science,Freshman,iPhone,Mac OS X-based computer,2,8,0,No,Youtube,Yes,Spring,1,2,4,1,6,1,8,Introvert,Pisces
+Degaulle,Food Microbiology,Other,Android,Windows-based computer,1,10.5,1,No,"Hulu, Netflix, HBO Max, Twitch, Youtube",Yes,Fall,1,1,1,0,8,7,5,Introvert,Taurus
+Oscar,TSM,Sophomore,Android,Windows-based computer,1,9,1,Yes,"Hulu, Netflix, Twitch",Yes,Spring,2,1,5,4,10,6,5,Introvert,Sagittarius
+Muneeb,Information Science,Sophomore,iPhone,Mac OS X-based computer,1,10.5,0,No,"Hulu, Netflix",Yes,Fall,1,1,2,3,6,9,60,Extrovert,Aries
+Dylan,Statistics,Senior,Android,Windows-based computer,1,8.5,1,Yes,"Twitch, Youtube",Yes,Spring,6,1,5,2,7.5,5,15,Introvert,Scorpio
+Andy,CS+STAT,Sophomore,iPhone,Windows-based computer,1,8.5,0,No,Youtube,No,Fall,3,1,10,0,8,3,2,Extrovert,Libra
+Trey,Aerospace Engineering,Sophomore,iPhone,Windows-based computer,2,12,0,Yes,"Netflix, Youtube",Yes,Spring,1,1,4,0,5.5,6,1,Introvert,Capricorn
+Emily,Statistics and English,Freshman,iPhone,Mac OS X-based computer,2,8,0,No,"Netflix, HBO Max, Youtube",No,Fall,1,0,3,1,8,40,19,Introvert,Capricorn
+Kayla,Economics,Freshman,iPhone,Mac OS X-based computer,1,7,1,Yes,Amazon Prime,Yes,Summer,2,1,4,1,6,8,6,Introvert,Pisces
+Zhiheng,Information Sciences,Junior,iPhone,Mac OS X-based computer,2,8.5,0,No,Netflix,Yes,Summer,3,3,6,0,7.5,6,10,Extrovert,Leo
+Victoria,Biology,Freshman,iPhone,Windows-based computer,2,9,1,No,"Netflix, HBO Max, Youtube",Yes,Fall,1,1,5,2,6,5,20,Introvert,Pisces
+Binh,Statistics,Sophomore,iPhone,Mac OS X-based computer,1,6,6,No,"Netflix, Youtube",No,Spring,0,0,4,1,6,2,6,Introvert,Cancer
+Nick,Piano Performance,Freshman,iPhone,Mac OS X-based computer,2,9.5,1,No,"Netflix, Youtube",Yes,Fall,2,2,2,1,7,2,10,Extrovert,Sagittarius
+Kaiyuan,Statistics,Sophomore,iPhone,Mac OS X-based computer,2,9,0,No,Youtube,Yes,Fall,2,3,5,0,7,8,30,Introvert,Scorpio
+Vahey,Statistics,Junior,iPhone,Windows-based computer,1,10.5,0,No,"Netflix, Amazon Prime, Twitch, Youtube",Yes,Summer,5,2,3,0,7,4,25,Extrovert,Scorpio
+Khushalli,Data Science + Information Sciences,Freshman,iPhone,Mac OS X-based computer,2,9,0,No,Youtube,Yes,Summer,1,3,3,1,8,10,8,Extrovert,Aquarius
+Brianna,STAT + CS,Freshman,iPhone,Windows-based computer,1,7,1,No,"HBO Max, Youtube",No,Fall,1,0,3.5,0,9,15,6,Introvert,Gemini
+Ke,Psychology,Senior,Android,Windows-based computer,2,7.5,0,Yes,Youtube,No,Summer,2,0,5,0,8,9,12,Extrovert,Leo
+Jeffrey,Math+CS,Sophomore,iPhone,Windows-based computer,2,9.5,0,No,"Twitch, Youtube",Yes,Winter,3,4,9,1,7,5,11,Introvert,Libra
+Annie,Information Science,Freshman,iPhone,Mac OS X-based computer,1,8,0,Yes,Youtube,No,Fall,1,0,8,0,7.5,6,10,Extrovert,Cancer
+Keaton,Data Engineer,Senior,iPhone,Windows-based computer,2,14,0,No,"Hulu, Netflix, Twitch, Youtube",Yes,Fall,2,4,4,0,7,5,5,Introvert,Cancer
+Martina,Business,Senior,Android,Windows-based computer,2,7.5,2,No,"Amazon Prime, Youtube",Yes,Summer,1,1,6,3,8,10,20,Introvert,Cancer
+Dane,Math (current) or Statistics,Freshman,iPhone,Windows-based computer,1,11,1,Yes,"Hulu, Youtube",Yes,Fall,0,1,0,2,7,5,12,Introvert,Gemini
+Veena,Statistics,Junior,iPhone,Windows-based computer,1,7.5,0,Yes,"Netflix, Twitch, Youtube",Yes,Winter,3,3,2,1,6,8,17,Introvert,Capricorn
+Alex,Information Sciences,Freshman,iPhone,Mac OS X-based computer,1,11.5,1,No,"Netflix, Youtube",No,Spring,1,0,3,2,7,9,46,Extrovert,Aries
+Ram,Mathematics and Economics,Freshman,iPhone,Mac OS X-based computer,1,44,0,Yes,"Twitch, Youtube",No,Spring,1,0,6,0,3,2,3,Introvert,Scorpio
+Veer,Data science,Freshman,iPhone,Mac OS X-based computer,2,10.5,0,No,"Netflix, HBO Max, Youtube",Yes,Summer,0,4,2,0,6,6,20,Extrovert,Aquarius
+Laila,Information Sciences,Junior,iPhone,Mac OS X-based computer,2,9,0,Yes,"Netflix, Youtube",Yes,Summer,0,6,5,1,7,10,20,Extrovert,Pisces
+Jackie,Construction Management,Junior,iPhone,Mac OS X-based computer,1,9.5,0,No,"Netflix, HBO Max",No,Summer,1,0,2,2,7,10,2,Introvert,Libra
+Jacob,Econometrics and Quantitative Economics,Senior,iPhone,Mac OS X-based computer,1,12,0,No,"Hulu, Netflix, HBO Max, Amazon Prime, Youtube",Yes,Fall,5,2,8,0,7,35,3,Introvert,Leo
+Min,Information Science,Senior,Android,Mac OS X-based computer,1,7,0,Yes,"Netflix, HBO Max, Youtube",Yes,Fall,2,1,6,1,5,10,16,Extrovert,Sagittarius
+Max,Statistics,Senior,iPhone,Mac OS X-based computer,2,10.5,0,No,"Netflix, HBO Max, Amazon Prime, Youtube",Yes,Fall,12,6,3,3,8,6,32,Extrovert,Aquarius
+Khushi,Stats,Freshman,iPhone,Mac OS X-based computer,1,6,0,No,"Netflix, Youtube",Yes,Summer,2,1,6,1,7,10,15,Introvert,Sagittarius
+Riley,TSM and Spanish,Sophomore,iPhone,Mac OS X-based computer,1,7,1,No,Netflix,No,Fall,0,1,5,0,9.5,25,40,Introvert,Libra
+Daniel,Information Science,Freshman,iPhone,Mac OS X-based computer,1,9,0,No,"Netflix, Twitch, Youtube",Yes,Spring,1,3,10,1,6,4,27,Introvert,Aries
+Jai,CS+Math,Freshman,iPhone,Mac OS X-based computer,1,11,1,No,"Netflix, Amazon Prime, Youtube",Yes,Summer,1,1,8,1,6,3,30,Extrovert,Virgo
+Goutham,Data science,Freshman,iPhone,Windows-based computer,1,9,2,Yes,"Netflix, Amazon Prime, Youtube",Yes,Winter,1,3,2.5,1,9,7,10,Introvert,Aquarius
+Nico,Ag/Bio Engineering,Senior,Android,Windows-based computer,2,11,1,Yes,"Netflix, Amazon Prime, Youtube",Yes,Fall,0,1,6,2,8,7,25,Extrovert,Taurus
+Vanessa,Crop Sciences,Senior,iPhone,Windows-based computer,1,7,1,No,"Hulu, Netflix",Yes,Summer,1,1,2,7,8,16,4,Introvert,Cancer
+Madison,Advertising,Sophomore,iPhone,Mac OS X-based computer,1,7,1,No,"Netflix, Youtube",No,Summer,1,0,6.5,1,7.5,20,40,Extrovert,Leo
+Bowen,Statistic,Sophomore,iPhone,Windows-based computer,1,7,1,No,Youtube,Yes,Summer,5,2,5,1,7,3,3,Introvert,Capricorn
+Kayla,Information Sciences,Freshman,iPhone,Windows-based computer,2,10.5,0,No,"Netflix, Youtube",Yes,Spring,0,2,5,2,7,5,6,Introvert,Aries
+Araditta,Psychology,Sophomore,iPhone,Mac OS X-based computer,1,8,0,No,"Netflix, Amazon Prime, Youtube",No,Spring,3,0,4.5,2,6.5,15,32,Introvert,Aquarius
+Coby,Econometrics and Quantitative Economics,Senior,Android,Windows-based computer,2,11,4,Yes,"Hulu, Netflix, Twitch, Youtube",Yes,Spring,6,4,4,0,8,3,20,Introvert,Aries
+Noah,Econometrics,Senior,iPhone,Mac OS X-based computer,2,9.5,1,No,"Netflix, HBO Max, Amazon Prime, Youtube",Yes,Summer,5,2,2,2,6.5,5,2,Introvert,Cancer
+Azeem,CS + Stats,Freshman,iPhone,Mac OS X-based computer,1,9,0,No,Youtube,Yes,Fall,1,1,3,1,7,6,33,Introvert,Cancer
+Milan,Molecular and Cellular Biology,Junior,iPhone,Windows-based computer,2,12,0,Yes,Youtube,Yes,Fall,1,1,2,1,8,4,8,Introvert,Leo
+Hojoon,Statistics and Computer Science,Sophomore,iPhone,Mac OS X-based computer,1,10.5,1,No,"Netflix, Twitch, Youtube",Yes,Fall,1,3,6,1,8,7,8,Introvert,Capricorn
+Dhruv,Statistics,Freshman,iPhone,Windows-based computer,2,10.5,2,No,"Netflix, Youtube",No,Fall,0,1,2,1,5,3,7,Extrovert,Scorpio
+Caroline,Information Science - with a concentration in Data Science!,Junior,Android,Windows-based computer,1,7.5,0,No,"Amazon Prime, Youtube",Yes,Summer,1,2,10,2,7.5,8,40,Introvert,Leo
+Subbu,Political Science,Freshman,iPhone,Windows-based computer,2,11,0,No,Youtube,Yes,Summer,0,1,3,1,8,8,7,Introvert,Sagittarius
+Justin,Statistics,Senior,Android,Windows-based computer,1,8.5,0,Yes,Youtube,Yes,Fall,8,14,1.5,1,7,7,46,Introvert,Virgo
+Josh,Computer science,Sophomore,iPhone,Windows-based computer,2,9,2,No,Youtube,Yes,Fall,1,4,4,1,5,8,4,Introvert,Leo
+Trishla,IS,Freshman,Android,Mac OS X-based computer,1,7,0,No,"Amazon Prime, Youtube",Yes,Winter,2,1,3,1,8,27,10,Extrovert,Taurus
+Zihan,sociology,Other,iPhone,Windows-based computer,2,8.5,0,No,Youtube,No,Fall,4,0,4,1,7,15,6,Extrovert,Sagittarius
+Binkina,computer science,Freshman,iPhone,Windows-based computer,1,7.5,1,Yes,"Netflix, Youtube",Yes,Fall,2,2,10,1,6,10,8,Introvert,Scorpio
+Andrew,Computer Science,Senior,iPhone,Windows-based computer,1,9,0,No,"Netflix, Twitch, Youtube",Yes,Fall,5,6,1,3,6,4,7,Introvert,Taurus
+Raleigh,Linguistics,Freshman,iPhone,Mac OS X-based computer,1,8.5,0,No,Youtube,No,Winter,0,0,4.5,0,6,4,8,Extrovert,Aries
+Ana,Economics,Sophomore,iPhone,Mac OS X-based computer,1,10,0,No,"Hulu, Netflix, HBO Max, Youtube",Yes,Summer,0,2,5,2,9,7,6,Extrovert,Pisces
+Nick,Philosophy and informatics double major.,Freshman,iPhone,Windows-based computer,1,9.5,0,Yes,"Twitch, Youtube",Yes,Winter,1,4,3,0,7,4,2,Introvert,Cancer
+Alex,ETMAS - Construction Management,Junior,iPhone,Mac OS X-based computer,1,11,1,Yes,"Hulu, Netflix, Youtube",Yes,Fall,0,1,3,4,6,7,11,Extrovert,Leo
+Hansika,Information Systems,Freshman,iPhone,Windows-based computer,2,11,0,Yes,"Hulu, Netflix",Yes,Fall,1,3,3,1,7,8,8,Extrovert,Sagittarius
+Tarun,CS + GIS,Freshman,iPhone,Mac OS X-based computer,2,12.5,0,No,"Netflix, Amazon Prime, Youtube",No,Spring,0,3,3,1,8,5,24,Introvert,Taurus
+Kate,Sociology,Freshman,iPhone,Mac OS X-based computer,1,6,0,Yes,"Hulu, Netflix, HBO Max",No,Fall,1,0,3,1,7,12,8,Extrovert,Pisces
+Pedram,Mathematics and Computer Science,Freshman,iPhone,Mac OS X-based computer,1,12,3,Yes,Youtube,Yes,Winter,0,1,7,1,8,14,5,Introvert,Capricorn
+Conor,Statistics,Freshman,iPhone,Mac OS X-based computer,1,13,1,No,"Hulu, Netflix, HBO Max",No,Summer,1,0,4,2,6,6,3,Introvert,Capricorn
+Keegan,Information Sciences,Junior,iPhone,Mac OS X-based computer,1,8,0,No,Netflix,No,Fall,1,0,5,0,8,3,10,Introvert,Leo
+Demitri,Statistics,Junior,Android,Windows-based computer,1,11,0,Yes,"Hulu, Youtube",Yes,Spring,4,3,0,2,5,1,25,Introvert,Pisces
+kristian,Animal Sciences,Junior,iPhone,Mac OS X-based computer,1,11,1,No,"Netflix, HBO Max, Youtube",No,Summer,1,0,1,3,7,5,7,Extrovert,Aries
+Si,Information Sciences,Freshman,iPhone,Windows-based computer,1,12,2,No,"Netflix, Youtube",Yes,Spring,1,3,1,1,7,9,22,Introvert,Libra
+Irene,Economics and Statistics,Freshman,iPhone,Mac OS X-based computer,1,10,0,Yes,"Netflix, HBO Max, Youtube",No,Spring,2,0,3,1,8,10,20,Introvert,Pisces
+Valerie,Geology,Junior,Android,Windows-based computer,1,9.5,1,No,Youtube,Yes,Summer,1,2,4,1,8,12,24,Extrovert,Cancer
+Sean,Actuarial Science,Freshman,iPhone,Windows-based computer,1,5,0,No,"Hulu, Netflix, Amazon Prime, Twitch, Youtube",Yes,Summer,2,1,3,1,6,2,5,Introvert,Cancer
+Jinxiao,Statistics,Senior,iPhone,Mac OS X-based computer,1,6,1,No,Youtube,Yes,Spring,4,1,5,0,8,10,7,Extrovert,Pisces
+Shriyal,Stats,Freshman,iPhone,Mac OS X-based computer,1,7,1,No,"Hulu, Netflix, HBO Max, Youtube",Yes,Summer,2,3,5,1,7,25,17,Extrovert,Libra
+Zoe,Information Sciences,Sophomore,iPhone,Mac OS X-based computer,2,8,0,No,"Netflix, HBO Max",Yes,Fall,1,2,8,2,8,20,40,Extrovert,Capricorn
+Baseet,Engineering,Senior,iPhone,Mac OS X-based computer,2,11.5,1,No,"Netflix, Twitch, Youtube",No,Fall,2,1,6,3,5,12,4,Introvert,Scorpio
+Natasha,Computer Science,Junior,iPhone,Windows-based computer,2,8,15,No,"Netflix, Youtube",Yes,Fall,1,6,4,1,7,5,12,Introvert,Capricorn
+Arya,Information Sciences + Data Science,Freshman,iPhone,Mac OS X-based computer,2,8,1,Yes,"Netflix, Amazon Prime, Youtube",Yes,Fall,2,2,2,1,6,4,10,Introvert,Sagittarius
+Sam,Information Science,Sophomore,Android,Mac OS X-based computer,1,8,1,No,Youtube,Yes,Fall,2,2,6,1,8,4,7,Introvert,Aquarius
+Anthony,Information Science + Econometrics,Freshman,iPhone,Mac OS X-based computer,1,9,0,No,"Netflix, Youtube",Yes,Winter,0,2,6,0,8,2,7,Introvert,Capricorn
+Grace,information sciences,Freshman,iPhone,Mac OS X-based computer,2,5.5,0,No,"Netflix, Youtube",Yes,Fall,1,0,4,1,8,8,6,Introvert,Taurus
+Katherine,Psychology,Junior,Android,Windows-based computer,1,9.5,1,Yes,"Hulu, Netflix, Amazon Prime, Twitch, Youtube",Yes,Fall,2,0,5,2,5,20,10,Introvert,Scorpio
+Hill,Economics,Junior,Android,Mac OS X-based computer,2,9,4,No,Youtube,Yes,Summer,3,2,1,1,7,1,1,Introvert,Capricorn
+Kashni,psychology,Freshman,iPhone,Mac OS X-based computer,1,8.5,0,No,"Netflix, HBO Max, Youtube",No,Summer,2,0,3,2,8,15,10,Extrovert,Taurus
+Austin,IS,Sophomore,iPhone,Windows-based computer,2,8,1,Yes,"Hulu, Netflix, HBO Max, Amazon Prime, Twitch, Youtube",Yes,Fall,1,2,3,1,6,5,80,Extrovert,Gemini
+Xinming,Computer science,Freshman,iPhone,Mac OS X-based computer,1,9,0,No,Youtube,Yes,Spring,0,1,4,1,8,8,6,Introvert,Pisces
+Harish,Information Sciences,Sophomore,iPhone,Mac OS X-based computer,1,12,0,Yes,"Netflix, Amazon Prime, Youtube",Yes,Spring,1,4,3,1,8,3,20,Introvert,Aries
+Nalin,Finance (Business),Freshman,Android,Mac OS X-based computer,1,10,0,Yes,Youtube,Yes,Fall,0,2,3,1,8,3,7,Introvert,Taurus
+Sabir,Computer Science,Freshman,iPhone,Windows-based computer,1,9,0,No,"Netflix, Twitch, Youtube",Yes,Fall,0,8,3,2,6,3,17,Introvert,Leo
+Charlie,computer science and statistics,Freshman,iPhone,Mac OS X-based computer,2,11,1,No,"Hulu, Youtube",Yes,Spring,1,3,7,1,6,7,45,Extrovert,Capricorn
+Gwyn,Journalism,Sophomore,iPhone,Mac OS X-based computer,1,11,1,Yes,"Netflix, HBO Max",No,Fall,2,0,20,1,8,15,6,Extrovert,Libra
+Xinyi,Communication,Junior,iPhone,Windows-based computer,1,8.5,0,No,Youtube,No,Fall,2,0,3,1,9,12,10,Extrovert,Taurus
+sofiya,undeclared,Freshman,iPhone,Mac OS X-based computer,1,8.5,1,Yes,"Netflix, Youtube",Yes,Fall,0,1,1,1,7,10,7,Introvert,Libra
+Qiuer,Statistic,Sophomore,iPhone,Windows-based computer,1,5.5,1,No,"HBO Max, Youtube",No,Summer,1,0,8,1,9,5,7,Introvert,Cancer
+Joshua,Advertising,Sophomore,iPhone,Mac OS X-based computer,1,8.5,1,No,"Netflix, Twitch, Youtube",No,Fall,2,0,3,1,8,73,34,Introvert,Sagittarius
+Sreelaya,Integrative Biology,Sophomore,iPhone,Windows-based computer,1,8,0,Yes,Youtube,Yes,Summer,1,1,30,1,7,5,1,Introvert,Virgo
+Izaak,Statistics and Computer Science,Freshman,Android,Windows-based computer,1,10.5,3,Yes,"Netflix, HBO Max, Amazon Prime, Twitch, Youtube",No,Summer,1,0,5,2,8.5,7,3,Introvert,Cancer
+Chaeyeon,Statistics & Economics,Freshman,Android,Windows-based computer,1,7,1,Yes,Youtube,No,Spring,1,0,3,1,8,8,5,Introvert,Aquarius
+Maria,Statistics,Sophomore,iPhone,Mac OS X-based computer,1,7,1,Yes,Youtube,No,Fall,1,0,5,3,10,8,1,Introvert,Gemini
+Ana,information science,Sophomore,iPhone,Mac OS X-based computer,2,7,1,No,"Hulu, Netflix, Youtube",Yes,Fall,1,5,4,3,7,6,5,Introvert,Virgo
+Eliana,IB,Freshman,iPhone,Windows-based computer,2,6,1,Yes,"Netflix, Youtube",Yes,Spring,1,1,4,2,6,9,14,Introvert,Sagittarius
+Jingyuan,Statistic and computer science,Sophomore,iPhone,Mac OS X-based computer,2,10.5,1,No,Youtube,Yes,Fall,3,1,2,1,6,8,182,Introvert,Aquarius
+Andrew,Economics,Senior,iPhone,Windows-based computer,2,10,0,No,"Hulu, Youtube",Yes,Summer,2,2,4,1,8,10,12,Extrovert,Aries
+Barry,Economics,Junior,iPhone,Mac OS X-based computer,2,9,1,No,Youtube,No,Summer,3,0,7,0,8,30,10,Introvert,Pisces
+Frank,Economics,Senior,iPhone,Windows-based computer,1,9.5,1,No,"Netflix, Youtube",Yes,Fall,1,0,3,0,7,4,9,Introvert,Sagittarius
+Dakota,Engineering Technology & Management for Agricultural Systems,Sophomore,iPhone,Windows-based computer,1,10.5,0,Yes,"Hulu, Netflix, Amazon Prime, Youtube",Yes,Spring,0,1,3,1,6.5,12,8,Introvert,Gemini
+Jayha,Information Science,Freshman,iPhone,Mac OS X-based computer,1,9,0,No,"Netflix, Twitch, Youtube",Yes,Fall,1,0,1,1,6,16,20,Extrovert,Aquarius
+Sarah,Engineering Technology Management of Agricultural Systems,Sophomore,iPhone,Mac OS X-based computer,1,8,1,Yes,"Netflix, HBO Max, Youtube",No,Spring,1,1,4,3,6,20,18,Extrovert,Virgo
+Marcus,Computer Science,Sophomore,iPhone,Mac OS X-based computer,1,11,3,No,"Netflix, Twitch, Youtube",Yes,Summer,2,2,6,7,6,95,30,Introvert,Virgo
+Tavarre,Engineering Technology & Management,Sophomore,iPhone,Windows-based computer,2,9,0,No,"Netflix, Twitch, Youtube",No,Fall,0,0,2,3,6,4,6,Introvert,Sagittarius
+Michael,STAT,Freshman,iPhone,Mac OS X-based computer,1,8,0,No,Youtube,Yes,Fall,1,1,2,0,8,5,10,Introvert,Cancer
+Subash,Information Science,Freshman,iPhone,Windows-based computer,1,10.5,0,Yes,"Netflix, Youtube",Yes,Winter,0,1,2,1,7.5,2,4,Introvert,Aries
+Jay,Communication,Senior,iPhone,Windows-based computer,1,10,2,No,"Netflix, Amazon Prime, Youtube",No,Spring,1,0,2,1,6,5,6,Introvert,Aquarius
+Joel,Psychology,Freshman,iPhone,Windows-based computer,2,10.5,0,Yes,"Netflix, Amazon Prime, Youtube",No,Summer,1,0,1.5,2,6.5,4,5,Extrovert,Gemini
+Veronica,linguistics,Junior,iPhone,Mac OS X-based computer,1,7.5,0,No,"Netflix, Youtube",Yes,Fall,1,2,4,2,6,20,18,Introvert,Pisces
+Thomas,Mechanical Engineering,Junior,iPhone,Windows-based computer,2,14,2,Yes,"Netflix, HBO Max, Youtube",No,Fall,1,0,2,2,6,10,25,Introvert,Aquarius
+Yusuk,stat,Sophomore,Android,Windows-based computer,2,9,1,Yes,"Twitch, Youtube",No,Summer,1,0,3,1,8,2,3,Introvert,Virgo
+Rishitaa,Psychology,Sophomore,iPhone,Mac OS X-based computer,2,8,0,No,"Netflix, Amazon Prime, Youtube",Yes,Fall,1,0,2,1,7,6,5,Extrovert,Cancer
+Nandika,Computer Engineering,Freshman,iPhone,Mac OS X-based computer,0,8.5,0,Yes,"Netflix, Amazon Prime, Youtube",Yes,Fall,0,3,3,1,7,10,30,Introvert,Aquarius
+Chenhao,Computer Science,Sophomore,iPhone,Windows-based computer,2,9.5,0,No,Youtube,Yes,Summer,0,6,5,0,7,8,5,Introvert,Gemini
+Ashton,Information Sciences,Junior,Android,Windows-based computer,1,8.5,0,Yes,"Netflix, Youtube",Yes,Summer,0,6,2,1,8,3,25,Introvert,Virgo
+Sankalp,CS and Statistics,Freshman,Android,Mac OS X-based computer,2,7,0,No,"Hulu, Netflix, Amazon Prime, Twitch, Youtube",Yes,Fall,1,1,5,1,7,4,5,Introvert,Scorpio
+Uli,political science,Junior,iPhone,Mac OS X-based computer,1,12,0,No,"Hulu, Netflix, HBO Max, Amazon Prime, Youtube",No,Summer,4,0,2,2,5,3,2,Extrovert,Scorpio
+Jake,MACS,Freshman,Android,Windows-based computer,1,10.5,0,Yes,"Netflix, HBO Max, Twitch, Youtube",Yes,Winter,0,0,2,1,7,6,40,Extrovert,Taurus
+Julia,Advertising,Sophomore,iPhone,Mac OS X-based computer,1,6.5,0,No,"Hulu, Netflix, HBO Max",No,Fall,1,0,4,1,8,8,25,Extrovert,Virgo
+Joao,Industrial Engineering,Senior,iPhone,Mac OS X-based computer,1,9.5,1,Yes,"Netflix, Youtube",Yes,Summer,2,6,2,2,7.5,4,35,Introvert,Aquarius
+Carson,Information Sciences,Freshman,iPhone,Windows-based computer,1,7.5,0,Yes,"Twitch, Youtube",Yes,Fall,1,2,3,0,6,4,0,Introvert,Aries
+Sri Nithya,Information Sciences,Freshman,iPhone,Windows-based computer,1,5,0,No,"Netflix, HBO Max, Amazon Prime, Youtube",Yes,Fall,0,0,5,1,7,20,45,Extrovert,Virgo
+brandon,information sciences,Senior,iPhone,Mac OS X-based computer,1,12,0,No,"HBO Max, Youtube",Yes,Fall,2,2,0,1,8,12,0,Introvert,Virgo
+Yujie,MCB,Freshman,iPhone,Windows-based computer,2,9,0,No,Youtube,Yes,Fall,2,0,6,4,7,5,6,Introvert,Scorpio
+Shiuli,Psychology,Sophomore,Android,Windows-based computer,2,9.5,7,No,"Netflix, Amazon Prime, Youtube",Yes,Fall,1,1,2,0,6,7,12,Introvert,Virgo

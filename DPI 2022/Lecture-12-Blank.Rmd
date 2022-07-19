@@ -1,0 +1,219 @@
+---
+title: "Lecture 12"
+author: "Paul Holaway, Abhi Thanvi"
+date: "July 12th, 2022"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lecture 11 Review
+
+Before we move on to the new material, we will do a quick review of Lecture 11 content. Last time we learned about the Central Limit Theorem, random variables, and how to calculate their expected values and standard deviations. We info-dumped a few formulas on you, then taught you how to calculate the values in `RStudio` if the variable is Normal. Let's quickly review them before moving onto today's topic.
+
+## Example 1; Quick Review
+
+Alex owns a race horse that is really good. It always finishes in the top 5. However, he wants to know where his horse will most likely finish (for various reasons). What is the expected place his horse will finish and the standard deviation of the finish.
+
+| Finish | Probability |
+| ---: | :--- |
+| 1 | 0.15 |
+| 2 | 0.25 |
+| 3 | 0.35 |
+| 4 | 0.20 |
+| 5 | 0.05 |
+
+$$
+\mathbb{E}(Finish)=1*0.15+2*0.25+3*0.35+4*0.20+5*0.05=2.75
+$$
+$$
+SD(Finish)=\sqrt{\mathbb{E}(Finish^2)-(\mathbb{E}(Finish)^2)}
+$$
+$$
+\mathbb{E}(Finish^2)=1^2*0.15+2^2*0.25+3^2*0.35+4^2*0.20+5^2*0.05=8.75
+$$
+$$
+SD(Finish)=\sqrt{8.75-2.75^2}=\sqrt{8.75-7.5625}=\sqrt{1.1875}\approx1.0897
+$$
+As for when you have a continuous random variable that is normal, remember that you can just use `mean(Data$Variable)` and `sd(Data$Variable)` to get the information you want. It is pretty simple to type into `RStudio`, so I will hold off on doing an example here. You will use both later today during our lecture time. Okay, now we can move onto the next portion of lecture content.
+
+# Confidence Intervals
+
+Today we are going to cover one of the most useful tools in basic statistics, the confidence interval. A **Confidence Interval** is an interval of values constructed so that, with a specified degree of confidence, the value of the population parameter lies within it. Be careful, this does **NOT** say that our confidence interval contains the population parameter. It says that there is a certain percentage chance that the interval contains the population parameter. Remember that random sampling exists and what it can do to an estimate (#Lecture4). What the population parameter is depends on the distribution we are using.
+
+- **Normal**
+  - $\mu$ (Population Mean)
+  - $\sigma$/$\sigma^2$ (Population Standard Deviation/Variance)
+- **Binomial**
+  - $p$ (Population Probability)
+  - $n$ (Population Size)
+  
+We will only focus on $\mu$ for Normal and $p$ for Binomial since those are the most commonly studied for those two distributions. We will first start with the confidence interval for $p$ as it is much easier than the Normal confidence interval for $\mu$.
+
+## Confidence Interval for a Population Percentage/Proportion
+
+The confidence interval for a population percentage/proportion is ...
+$$
+(\hat{p}-Z_{\frac{\alpha}{2}}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}},\hat{p}+Z_{\frac{\alpha}{2}}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}})
+$$
+
+- $\hat{p}$ is the estimated percentage/proportion
+- $n$ is the sample size; This must be a large number (Usually $n\ge30$ works)
+- $Z_{\frac{\alpha}{2}}$ is the quantile cutoff
+
+You can probably already calculate the first two values, but what about the quantile cutoff? The manual calculation is quite complex, so we will use `RStudio` to do it for us. We will go over the different functions you can use in the examples. If this seems a bit overwhelming at first, that is fine. We will go through this during an example.
+
+### Example 2; Games Played
+
+In NCAAF, most teams play only 12 games a season. However, some will play in their conference championship, [bowl games](https://www.youtube.com/watch?v=CxL1YeunR7U), of the College Football Playoffs. However, just how many are there that do? Let's use the `cfb21` data set as the sample. Create a 90% and 95% confidence interval for the proportion of teams that play more than 12 games.
+```{r ex2_setup}
+library(tidyverse)
+cfb21 <- read.csv("~/Desktop/DPI 2022/cfb21.csv", stringsAsFactors=TRUE)
+```
+Okay, now first we need to calculate the estimated proportion of teams that played more than 12 games. $\hat{p} = \frac{x}{n}$ where $x$ is the number of teams that played more than 12 games. Let's calculate this in `RStudio`.
+```{r ex2.1}
+p_hat = nrow(cfb21 %>% filter(Games > 12))/nrow(cfb21)
+p_hat
+```
+Okay, we now have our $\hat{p}$. The value we get makes sense due to the large number of bowl games these days. Now we can easily calculate $n$, but what about $Z_{\frac{\alpha}{2}}$? That can be calculated for the proportion/percentage interval using `qnorm(c,lower.tail = FALSE)`. Okay, but what is `c`? That value depends on the size of the confidence interval. It can be calculated using the following formula, $c = \frac{(1-a)}{2}$, where $a$ is the confidence interval size. Let's calculate the two different $c$ values.
+```{r ex2.2}
+c90 = (1-0.90)/2
+c95 = (1-0.95)/2
+c90
+c95
+```
+Now let's find the $Z_{\frac{\alpha}{2}}$ values.
+```{r ex2.3}
+Z90 = qnorm(c90,lower.tail = FALSE)
+Z95 = qnorm(c95,lower.tail = FALSE)
+Z90
+Z95
+```
+Okay, now let's make the two confidence intervals.
+```{r ex2.4}
+int90 = p_hat + c(-1,1) * Z90 * sqrt(p_hat*(1-p_hat)/nrow(cfb21))
+int95 = p_hat + c(-1,1) * Z95 * sqrt(p_hat*(1-p_hat)/nrow(cfb21))
+int90
+int95
+```
+Note that `+ c(-1,1)` is just a fancy way for me to code in the interval without having to type the same expression twice (one with `-`, one with `+`) (#EffecientCode). Great, now we have the two different intervals. Notice how the 95% one is larger. This is because we want a higher certainty that the true population proportion of teams that played more than 12 games is captured in the interval.
+
+## Confidence Interval for a Population Mean (with Normal Distribution)
+
+Okay, now we are onto the Normal case. In the normal distribution, it is a bit more complicated than the proportion.
+
+In the Normal case, there are two different formulas for the confidence interval.
+$$
+(\bar{x}-Z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}},\bar{x}+Z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}})
+$$
+$$
+(\bar{x}-t_{\frac{\alpha}{2},df}\frac{s}{\sqrt{n}},\bar{x}+t_{\frac{\alpha}{2},df}\frac{s}{\sqrt{n}})
+$$
+
+- $\bar{x}$ is the sample mean
+- $n$ is the population/sample size
+- $\sigma$ is the population standard deviation
+- $s$ is the sample standard deviation
+- $Z_{\frac{\alpha}{2}}$ or $t_{\frac{\alpha}{2},df}$ are the quantile cutoffs
+
+Each one of these formulas is used in different circumstances. Notice how the only differences are population versus sample standard deviation and the quantile cutoff. To determine which formula to use, we need to look at two things.
+
+1. Do we know the population standard deviation?
+2. How large is our population/sample?
+
+| | Known Pop. SD | Unknown Pop. SD |
+| ---: | :---: | :---: |
+| Large Sample | $Z$ | $Z$ or $t$ |
+| Small Sample | $Z$ | $t$ |
+
+There are a few things to note here about coding into `RStudio`.
+
+1. You can calculate $\bar{x}$ by using the `mean()` function like before.
+2. If you are calculating the population standard deviation, you will have to do `sd(data$variable)*sqrt((n-1)/n)`. The `sd()` function calculates the sample standard deviation and the `*sqrt((n-1)/n)` is a correction. If you wish to know the math behind it, you can look it up or ask one of your instructors.
+3. $Z_{\frac{\alpha}{2}}$ is still calculated using the same `qnorm(c,lower.tail = FALSE)` as before.
+4. $t_{\frac{\alpha}{2},df}$ is calculated using `qt(c,df,lower.tail = FALSE)`
+
+$df$ stands for "degrees of freedom", and $df = n - 1$. You do not have to worry what $df$ is, just know how to calculate it. Okay, let's do some examples to make things easier to comprehend.
+
+## Example 3; Hits
+
+You are looking to create a 95% and 99% confidence interval for the average number of hits for a player on a baseball team. The data for this is in the `baseball` data set. Create the two confidence intervals.
+
+1. Do we know the population standard deviation?
+2. How large is our population?
+
+```{r ex3_setup}
+baseball <- read.csv("~/Desktop/DPI 2022/baseball.csv", stringsAsFactors=TRUE)
+```
+```{r ex3}
+xbar = mean(baseball$H)
+n = nrow(baseball)
+sigma = sd(baseball$H)*sqrt((n-1)/n)
+#Don't forget, we need the correction factor since we have the population SD.
+c1 = (1-0.95)/2
+c2 = (1-0.99)/2
+Z1 = qnorm(c1, lower.tail = F)
+Z2 = qnorm(c2, lower.tail = F)
+#Confidence Intervals
+xbar + c(-1,1) * Z1 * sigma/sqrt(n)
+xbar + c(-1,1) * Z2 * sigma/sqrt(n)
+```
+
+### Example 4; Z vs. t
+
+Okay, now let's go back to the `cfb21` data set. Suppose you want to create a 95% confidence interval for the average number of touchdowns scored by the offence of NCAAF teams.
+
+1. Do we know the population standard deviation? NO
+2. How large is our population? 130 (large)
+
+This means we use $Z$ or $t$. What's the difference though? Let's find out.
+```{r ex4}
+#Needed for both
+xbar = mean(cfb21$Off.TDs)
+n = nrow(cfb21)
+c = (1-0.95)/2
+#Needed for Z CI
+sigma = sd(cfb21$Off.TDs)*sqrt((n-1)/n)
+Z = qnorm(c, lower.tail = F)
+#Needed for t CI
+s = sd(cfb21$Off.TDs)
+df = n-1
+t = qt(c, df, lower.tail = F)
+#Z CI
+xbar + c(-1, 1)*Z*sigma/sqrt(n)
+#t CI
+xbar + c(-1, 1)*t*s/sqrt(n)
+```
+Notice how they are practically the same. This is why you may use $Z$ or $t$. Either one will get you approximately the same CI. From both, we can say with 95% certainty that the true average number of touchdowns scored by the offense of a NCAAF team will be between about 41 and 45 TDs.
+
+### Example 5; Z vs. t, But With A Small Sample
+
+Okay, now let's repeat example 4, but say you only have this as your sample.
+```{r ex5_setup}
+set.seed(314439)
+cfb21_sample = cfb21[sample(nrow(cfb21), size = 5, replace = F),]
+```
+Now let's recalculate everything using this sample.
+```{r ex5}
+#Needed for both
+xbar = mean(cfb21_sample$Off.TDs)
+n = nrow(cfb21_sample)
+c = (1-0.95)/2
+#Needed for Z CI
+sigma = sd(cfb21_sample$Off.TDs)*sqrt((n-1)/n)
+Z = qnorm(c, lower.tail = F)
+#Needed for t CI
+s = sd(cfb21_sample$Off.TDs)
+df = n-1
+t = qt(c, df, lower.tail = F)
+#Z CI
+xbar + c(-1, 1)*Z*sigma/sqrt(n)
+#t CI
+xbar + c(-1, 1)*t*s/sqrt(n)
+```
+Notice here how the two intervals are **NOT** the same. The one using $t$ is wider by about 5 TDs. This is because when the sample size is small, there is a greater chance for variation in the sample. Therefore, you want to use the $t$ interval here because it has a greater chance of containing the true average number of touchdowns scored by the offense of a NCAAF team. Remember, use $t$ when you do not know the population standard deviation. You may use it if $n$ is large, but you *must* use it when $n$ is small.
+
+## End of Lecture 12 Notes

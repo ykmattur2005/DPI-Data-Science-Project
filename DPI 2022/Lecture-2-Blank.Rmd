@@ -1,0 +1,216 @@
+---
+title: "Lecture 2"
+author: "Paul Holaway, Abhi Thanvi"
+date: 'June 22nd, 2022'
+output: pdf_document
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lecture 1 Review
+
+Before we move on to the new material, we will do a quick review of Lecture 1 content. As we mentioned last time, `R` is basically a fancy calculator that can do many amazing things. However, before we can go onto more complicated topics, let's review a few basics.
+
+### Example 1; Assigning and Printing Variables
+
+Remember that when we assign variables, we are saving a numeric value so we can use it later. Also remember, to do this, we do `variable = numeric value` or `variable = expression`. Remember that to run the code cells, click on the green arrow button in the top right-hand corner of the cell.
+```{r ex1.1}
+x=4
+fish = 2+2
+```
+
+To print the variables, remember to type them on their own line.
+```{r ex1.2}
+x
+fish
+```
+
+### Example 2; Complex Expressions with Variables
+
+We can also use variables in complex expressions to save us the trouble of typing all the numbers out. The examples from last lecture and lab were simple so I will do a more complicated example. Let's say you need to calculate this formula $T = \frac{p}{4r}$. If the numbers are going to be messy, let's use variable assignment to make it easier. Let's say that $p$ and $r$ are know with $p=ln(4)$ and $r=\sqrt[3]{2}$. Remember to hover over the LaTex text to view the expression
+```{r ex2}
+#Variable Assignment
+p = log(4)
+r = 2^(1/3)
+#Calculation
+
+T = p/(4*r)
+
+#Okay, now we can move onto the next portion of lecture content.
+
+# Data Frames and Conditionals
+
+## Data Sets and Data Frames
+
+#- **Data Set:** A collection of related sets of information that is composed of separate elements but can be manipulated as a unit by a computer.
+
+#- **Data Frame:** A data structure that organizes data into a 2-dimensional table of rows and columns, much like a spreadsheet.
+
+#Above are the dictionary definitions, but they are not that intuitive if this is the first time you are being exposed to them. Think of a data set as a collection of data. However, data sets may or may not be well organized (technical terms being structured or unstructured data). Data Frames are as it says in the definition, organized into a 2D table that is easy to read and work with. There is a saying in Statistics and Data Science that 80% of your work is cleaning your data. What this saying means is that about 80% of the work we do it take a disorganized data set and create an organized data frame to work with. While you are not there quite yet, let's begin with first looking at a data set.
+
+## Reading A Data Set
+
+#We are now going to learn how to read a data set into `RStudio`. It is pretty simple to do once you have done it a few times. Read and follow the instructions below [carefully](https://www.youtube.com/watch?v=mKLRcSj-5Ec).
+
+#1. Go to `Session` at the top bar.
+#2. Scroll down to `Set Working Directory` and click on `Choose Directory...`.
+#3. Choose your DPI folder on your computer.
+
+#Steps 1-3 will only have to be done if you have closed `RStudio`. Once you set your working directory, it will remain that way until you close `RStudio` where it resets back to the `Desktop`.
+
+#4. Download the data set you want. It can either be from Blackboard or another site.
+#5. Move the data set to your DPI folder on your computer.
+#6. Click on `Import Dataset`
+#7. Click on the file type you are trying to import. If you are using...
+  #- a `.csv` or `.tsv` file, then click `From Text (base)...`
+  #- an Excel spreadsheet, then click `From Excel...`
+#8. Find the file you want to import. All of the data sets for the summer will be uploaded to Blackboard for you to download. It is highly recommended that you keep all of your data sets in the course folder on your computer.
+#9. Select the file you want to import.
+
+#You will only have to follow steps 10-11 if you are importing a `.csv` file. If it is an Excel file, you may skip to step 12.
+
+#10. A new window will open up giving you import options, click `Yes` for `Heading` and check the box next to `Strings as factors`.
+#11. Rename the data set if you wish.
+#12. Click `Import`
+#13. Copy and paste the import code in the console into the blank code cell provided. This is necessary so you can convert your labs into PDF format.
+
+#If everything goes correctly, you will see the data set open in the top left-hand window and the data set will appear in your local environment. You can view the data set by clicking on it. You most likely will not use any other data types in this course. If you do, ask your instructors for help with importing it into `RStudio`.
+
+### Example 3; Reading a CSV File
+
+#Let's follow the instructions above to import a `.csv` file.
+
+
+hello_csv <- read.csv("~/Desktop/DPI 2022/hello.csv", stringsAsFactors=TRUE)
+```
+
+Excellent, now you have the data imported for you to work with. While `.csv` files are the standard file type, there are other file types out there. Another common one is an Excel file or `.xlsx` file.
+
+### Example 4; Reading an Excel File
+
+```{r ex4}
+library(readxl)
+hello <- read_excel("hello.xlsx")
+```
+
+Notice how here you need a separate package to import Excel data sets. If you do not already have `readxl` installed, you will need to do so. Refer back to Lecture 1 notes on how to install a package. Other data set types may also require separate packages which is why we are mostly going to give you `.csv` files to work with. Excel files are common enough where you will need to know how to import them.
+
+## Understanding A Data Frame
+
+Now that we have imported the data, let's take a look at it. Notice how we have rows and columns. The `hello` data set is a survey taken from the UIUC STAT107 students at the beginning of the semester. Each row is an individual observation. So each row is how a student responded to each question. Each column is an observation for a certain attribute for each observation. So a column is how each student responded to a question. You will notice some columns are numeric while some are strings (words). These are the two different types of responses you can have in data. Each one has certain ways that it can be treated. There are cases where they can be treated similarly, while some completely different. We will explore those late on throughout the course. Now let's start playing around.
+
+# Tidyverse
+
+Welcome to the meat (or whatever the equivalent is for vegetarians) of the course, the `tidyverse`. `tidyverse` is a package that is composed of other packages. The packages in `tidyverse` are all together because they have been considered some of the most useful and most widely downloaded packages in all of `R`. So they were incorporated together in one download for convenience. Think of it as a collection of the most useful tools in `R` in one download. Those packages are...
+
+- `ggplot2`
+- `tibble`
+- `tidyr`
+- `readr`
+- `purrr`
+- `dplyr`
+- `stringr`
+- `forcats`
+
+Before going onto the examples, install the `tidyverse` packages. We will be using some, but not all of these. There is unfortunately not enough time to go through everything. Note that we have cheat sheets for `dplyr`, `ggplot2`, `readr`, `stringr`, and `tidyr` on Blackboard. These cheat sheets have syntax for all the functions in the package. It may be a bit overwhelming at first to read, but take some time to read through them carefully if you are stuck. Now that we have done that, let's move onto actually doing things.
+
+## Summarizing Data
+
+One of the most useful tools in data science is looking at a summary of the data. It will include useful information such as the min, average, and max of numerical data and the frequency for categorical (string) data. This can be done by simply using the `summary()` function.
+
+### Example 5; Summarizing Data
+
+Let's look at the summary of the data. The syntax will be `summary(data)`.
+```{r ex5_setup}
+library(tidyverse)
+```
+```{r ex5}
+summary(hello_csv)
+```
+Ew... that looks a bit messy. However, everything is there. Except, what if we just wanted to look at the summary for a student's amount of time studying, we can definitely make this cleaner. To do that, we will have to learn how to access a specific column.
+
+## Accessing Columns
+
+Let's start out with something simple. Let's say you want to look at certain columns in a data set. Using the `hello` data set, let's say you only wanted to look at a students' major and year. To do this, we use the `tidyverse`. Remember to use the `tidyverse`, we have to call the package. Recall this is done using `library(packagename)`, which in this case would be `library(tidyverse)`.
+
+### Example 6; Selecting Columns
+
+Now we can do the actual work of getting the specific columns. This is accomplished using the `select()` function. The syntax for this is as follows...   
+
+`dataset %>% select(c("var1","var2",...))`   
+
+Please make sure you remember to have "" around the variable names. The extra code at the end is to print out only the 
+```{r ex6.1}
+x = hello_csv %>% select(c("Name","Year"))
+```
+What this code is saying is, from `dataset` select columns `var1`, `var2`, etc. `%>%` is called the "Pipe Operator". It tells `RStudio` that you wish to use a function on the data set. Now while this does a nice job at selecting the specific variables, it does not save it as something. If you want to save the specifically selected variables, you will have to use the same assignment procedure as variables.
+```{r ex6.2}
+subset = hello_csv %>% select_(c("Name","Major","Year"))
+head(subset, 10)
+```
+Now if you click on `subset` in your local environment, you will see it only contains each of those three columns. I have printed out the first 10 observations to save pages when converting to a PDF using a function called `head()`. This function will print out the first `n` observations. The code for using the `head()` function is simple... `head(data, n)`.   
+
+### Example 7; Deselecting Columns
+
+Now let's say you want every column in a data frame but one or two. Let's say the `hello` data set is confidential and you cannot reveal how people respond. This can be done using the same `select()` function, but with a slight change, you simply put `-c("Var1,"var2,...)`. Note the `-` before `c()`. Let's remove the names now.
+```{r ex7.1}
+temp = hello_csv %>% select(-c("Name"))
+head(temp, 10)
+```
+Now say we need to remove the students' Phone preferences for some reason as well as their name.
+```{r ex7.2}
+temp = hello_csv %>% select(-c("Name", "Phone"))
+head(temp, 10)
+```
+Now let's retry looking at the summary for just the amount of time studying.
+```{r ex7.3}
+summary(hello_csv %>% select(c("Study.Hours")))
+
+```
+There, much cleaner and easier to read. Plus you do not have to do any searching through a massive chunk of output.
+
+## Accessing Rows
+
+What if you wanted to access a specific row in a data set? You may either wish to look at one specific row or a group of rows that fit a certain criteria. Looking at a specific row will be easier by viewing the data set in the viewing panel, so we will not discuss the coding way here. Instead we will focus on looking at rows that fit a certain criteria.
+
+### Example 8; Filtering By Name
+
+Let's say you just wanted to look at data for Freshman in the `hello` data set. This can be accomplished using the `filter()` function. The syntax for this is as follows...  
+
+`data %>% filter(Variable == "Condition")`   
+
+Note how here you need to have "" around the condition, but not the variable. This is because we are looking at a categorical (string) variable.
+```{r ex8.1}
+head(hello_csv %>% filter(Year == "Freshman" & Phone == "Android"), 10)
+```
+Okay, but what if the variable we want to look at is numeric? In that case, it is similar syntax, just you do **NOT** put "" around the condition. Let's look at students who have no pets.
+```{r ex8.2}
+head(hello_csv %>% filter(Pets == 0), 10)
+```
+
+With numeric, we can do a bit more than categorical. Let's say we want to look at students who get a certain amount of sleep, say more than 6 hours on average.
+```{r ex8.3}
+head(hello_csv %>% filter(Sleep > 6), 10)
+```
+
+Looking now at the data, all students have more than six hours of sleep. You can manipulate the conditions inside `filter()` for different purposes.
+
+- `==`: Is equal to (Categorical or Numeric)
+- `!=`: Not equal to (Categorical or Numeric)
+- `>`: Greater than (Numeric)
+- `<`: Less than (Numeric)
+- `>=`: Greater than or equal to (Numeric)
+- `<=`: Less than or equal to (Numeric)
+
+### Example 9; Combining Conditions
+
+However, what if you want to do multiple conditions at once? This is easy using `%>%`. I will now look at Freshman who have no pets and who get more than six hours of sleep.
+```{r ex9}
+head(hello_csv %>% filter(Pets == 0) %>% filter(Sleep > 6), 10)
+```
+Looks like 37 people, or about 19.27% of the people in the data fit these criterion.
+
+## End of Lecture 2 Notes

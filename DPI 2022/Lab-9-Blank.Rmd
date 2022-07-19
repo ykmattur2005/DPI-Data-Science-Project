@@ -1,0 +1,117 @@
+---
+title: "Lab Politer Customs"
+author: "Abhi Thanvi, Paul Holaway"
+date: "July 6th, 2022"
+output: pdf_document
+toc: True
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+\newpage
+
+# Lab Politer Customs
+
+## Welcome
+
+Just like learning a new spoken language, you will not learn the language without practice. Labs are an important part of this course. Collaboration on labs is **extremely encouraged**. If you find yourself stuck for more than a few minutes, ask a neighbor or course staff for help. When you are giving help to your neighbor, explain the **idea and approach** to the problem without sharing the answer itself so they can figure it out on their own. This will be better for them and for you. For them because it will stick more and they will have a better understanding of the concept. For you because if you can explain it to other students, that means you understand it better too.
+
+## The Idea of this Lab
+
+The idea behind this lab is to continue the respect of the customary steps of learning any [computer science](https://www.youtube.com/watch?v=In3w9uF__P0) language. It is to learn loops, if/else statements, and writing your own functions (some languages call it "methods"). This is crucial to learn to write efficient code as these allow you to write logical, non-repetitive, and clean code for others to understand. Just like sharing your analysis, people read your code! When you write good code, people find it easier to understand what you did and really appreciate it. Consider this lab to be the one that gets your feet wet for the "Pure CS" portion of Data Science.
+
+  **"It's almost the halfway point, and I wanted to say y'all have done an amazing job! If you are having a great time then put a thumbs up!!" - Curious Abhi**
+
+## Problem 1: The Warmup Before Dash!
+
+**Question 1:** We want to calculate the area of a square, given some of the parameter. Create your own perimeter sequence by editing some code in Setup code (YOU DO NOT HAVE TO DELETE ANYTHING). We want all unique numbers in sequence (no repetition) and between the integers 1 and 10. We recommend sampling between 5-7. Then create your own custom function to calculate the area using the perimeters you sampled. Let's just dive in.
+
+**Answer:**
+
+```{r}
+#SETUP DO NOT DELETE
+set.seed(143572)
+
+#Code Edit for Sampling
+perimeter_seq = sample(1:10, 5, replace = F)
+print("perimeter_seq: ")
+perimeter_seq
+
+##Code here for Custom Function
+Area = function(perimeter) {
+  #Complete The Function to calculate the Area
+  return((perimeter/4)^2)
+}
+#Use Your Custom Function with the sequence generated on top
+print("areas: ")
+Area(perimeter_seq)
+```
+
+\newpage
+
+## Problem 2: The Final Stretch
+
+**Question 1:** Create function that returns the "greatest" difference between 3 numbers. 
+
+Ex: You are given three numbers 4.1, 2.2, 10.8. You should return the greatest difference which would be (10.8 - 2.2 = 8.6). Make sure your answer is always a positive difference. 
+
+*Hint: There are multiple ways you can solve this problem.*
+**Answer:**
+
+```{r}
+
+##Code here
+Difference = function(num1, num2, num3) {
+  return( max(c(num1, num2, num3)) - min(c(num1, num2, num3)) )
+}
+
+#Use Your Custom Function
+Difference(4.1, 2.2, 10.8)
+```
+
+**Question 2:** We are given slope and a x-value and y-intercept, and we need to calculate the y-value from the given parameter values. Write a custom function that takes in $(x_1,slope,y_0)$ as its parameter and calculate its y-value. There are different ways to code this, it's up to you! Make sure to test your function by printing a solution.
+
+**Answer:**
+
+```{r}
+
+##Code here to create your function
+Y_value = function(x_1, slope, y_0){
+  return( slope * x_1 + y_0 )
+}
+#Use Your Custom Function
+Y_value(2, 5, 3)
+```
+
+
+\newpage
+## Problem 3: Mystery Function 2.0
+
+**This question should be filled out, but it is a higher level of thinking question.**
+
+**Question:** 
+```{r}
+#QUESTION DO NOT CHANGE THIS
+Mystery = function(num1, num2, num3) {
+  temp1 = num3+num2+num1
+  temp2 = num1+num3+num2
+  
+  if(temp1 == temp2) {
+  mystery = temp1/3.0
+  return (mystery)
+  }
+}
+```
+
+*What is the mystery function doing? What is the purpose of the if statement, is it necessary? Justify your reasoning*
+
+**Answer:** The mystery function inputs three numbers (num1, num2, and num3), and finds the mean (average) of the three. The if statement is comparing whether num3+num2+num1 and num1+num3+num2 (represented by temp1 and temp2) are equal, and if so, it divides the sum of the three input numbers by 3 and returns the result (which is the average of the three numbers). However, by the commutative property of addition, the order of the numbers that you add doesn't change the sum, so temp1 and temp2 are always going to be equal. Therefore, the if statement is unnecessary, because it's never untrue and consequently never skipped.
+
+## Submission
+Once you have finished your lab...
+
+1. Go to the top left and click `File` and `Save`.
+2. Click on the `Knit` button to convert this file to a PDF.
+3. Submit **BOTH** the `.Rmd` file and `.pdf` file to Blackboard by 11:59 PM tonight.

@@ -1,0 +1,146 @@
+---
+title: "DPI Final Project"
+author: "Yashas Mattur"
+date: '2022-07-01'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Code here:
+
+```{r a}
+library(tidyverse)
+#energy use data set
+Energy_Use = Chicago_Energy_Benchmarking <- read.csv("~/Desktop/DPI 2022/Chicago_Energy_Benchmarking.csv", stringsAsFactors=TRUE)
+#green roof data set
+Green_Roofs <- read.csv("~/Desktop/DPI 2022/Green_Roofs.csv", stringsAsFactors=TRUE)
+```
+
+Why does this matter? Background on pollution, urban heat islands, green roofs
+- clean data
+- graphs (color, 3d, animation, gradient, kde, normal)
+  What do these graphs show?
+  - bar graph
+  - histogram
+  - scatter plot
+  - regression analysis
+    - linear regression
+    - logistic regression
+- confidence intervals
+- hypothesis testing
+  - significance test for means (Z/t)
+  - significance test for proportions
+  - chi-square
+    - test for homogeneity
+    - test for independence
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r b}
+for (x in 2014:2020)
+  hist((Energy_Use %>% filter(Data.Year == x))$ENERGY.STAR.Score, xlab = "Energy Star Score", main = x)
+```
+
+```{r c}
+EnergyPerYear = list()
+for (i in 1:7)
+  EnergyPerYear[[i]] = Energy_Use %>% filter(Data.Year == i + 2013)
+EnergyPerYear[[1]]
+
+```
+```{r d}
+hist(Energy_Use$Electricity.Use..kBtu.)
+```
+
+```{r e}
+library(maps)
+library(ggplot2)
+library(raster)
+library(dplyr)
+states = c("Illinois", "Indiana", "Wisconsin")
+us = getData("GADM", country = "USA", level = 1)
+us.states = map_data("state", region = states)
+buildings = data.frame(Energy_Use$ENERGY.STAR.Score, Energy_Use$Latitude, Energy_Use$Longitude, Energy_Use$Chicago.Energy.Rating)
+base = ggplot() + geom_polygon(data = us.states, aes(x=long, y=lat, group=group), color = "light green", fill = "light green") + geom_path(data = us.states, aes(x=long, y=lat, group=group)) + geom_point(data = buildings, aes(x=Energy_Use.Longitude, y=Energy_Use.Latitude, color=Energy_Use.ENERGY.STAR.Score), size = 1, alpha =I(0.03)) + coord_map() + coord_cartesian(xlim = c(-88.5,-87.5), ylim = c(41.5, 42.5)) + labs(col = "Energy Rating")
+cleanup = theme(panel.background = element_rect(fill = "light blue", colour = "white"), axis.line = element_line(colour = "white"), axis.ticks = element_blank(), axis.text.x = element_blank(), axis.text.y = element_blank(), axis.title.x = element_blank(), axis.title.y = element_blank())
+base+cleanup
+```
+```{r f}
+hist(Energy_Use$ENERGY.STAR.Score, xlab = "Energy Efficiency", main = "Histogram of Energy Efficiency in Chicago")
+```
+
+```{r g}
+library(ggplot2)
+library(gganimate)
+library(gifski)
+library(tidyr)
+library(sf)
+library(transformr)
+x = Energy_Use$Electricity.Use..kBtu.
+y = Energy_Use$Total.GHG.Emissions..Metric.Tons.CO2e.
+s = Energy_Use$District.Chilled.Water.Use..kBtu.
+t = Energy_Use$Data.Year
+unanimated_plot = ggplot(Energy_Use, aes(x, y, size = s, color = "salmon")) + geom_point(alpha = 0.7, show.legend = F) + stat_smooth(method = "lm", formula = y~x, geom="smooth") + coord_cartesian(xlim = c(0, 250000000), ylim = c(0, 50000)) + scale_size(range = c(2,12)) + labs(title = "Electricity Use vs Emissions in Year: {frame_time}", x = "Electricity Usage", y = "Amount of CO2 Emissions") + transition_time(t) + ease_aes() + theme(legend.position = "none")
+
+gganimate::animate(unanimated_plot, nframes = 7, fps = 2, renderer = gifski_renderer())
+anim_save("test.gif")
+```
+
+```{r h}
+library(patchwork)
+hist = ggplot(Energy_Use, aes(x=Total.GHG.Emissions..Metric.Tons.CO2e., y=..density..)) + geom_histogram(binwidth = 1000, color = "blue", fill = "light blue") + transition_states(Data.Year) + labs(title = "Year: {closest_state}", x = "CO2 Emissions (in Metric Tons)", y = "Proportion Density") + geom_density(color = "red") + coord_cartesian(xlim = c(0, 50000))
+gganimate::animate(hist)
+```
+
+Efficiency is increasing BECAUSE CO2 emissions are decreasing!
+
+
+
+```{r i}
+#confidence interval for mean of co2 emissions
+data = na.omit(Energy_Use$Total.GHG.Emissions..Metric.Tons.CO2e.)
+xbar = mean(data)
+n = length(data)
+c = (1-0.95)/2
+sigma = sd(data)*sqrt((n-1)/n)
+Z = qnorm(c, lower.tail = F)
+xbar + c(-1, 1)*Z*sigma/sqrt(n)
+```
+```{r}
+emissions = na.omit(Energy_Use$Total.GHG.Emissions..Metric.Tons.CO2e.)
+emissions = lapply(emissions, \(x) round(x/10000, 0))
+sample.emissions = unlist(sample(emissions, 100))
+electricity = na.omit(Energy_Use$Electricity.Use..kBtu.)
+electricity = lapply(electricity, \(x) round(x/1000000, 0))
+sample.electricity = unlist(sample(electricity, 100))
+chisq.test(sample.emissions, sample.electricity)
+```
+
+```{r j}
+#confidence interval for mean of energy score
+data = na.omit(Energy_Use$ENERGY.STAR.Score)
+xbar = mean(data)
+n = length(data)
+c = (1-0.95)/2
+sigma = sd(data)*sqrt((n-1)/n)
+Z = qnorm(c, lower.tail = F)
+xbar + c(-1, 1)*Z*sigma/sqrt(n)
+```
+
+```{r k}
+# h0 - mu = 2014's average Energy Star Score, h1 = mu > 2014's average energy star score
+m0 = mean(na.omit((Energy_Use %>% filter(Data.Year == 2014))$ENERGY.STAR.Score))
+data = na.omit((Energy_Use %>% filter(Data.Year == 2020))$ENERGY.STAR.Score)
+xbar = mean(data)
+n = length(data)
+s = sd(data)
+df = n-1
+tts = (xbar - m0)/(s / sqrt(n))
+pt(tts,df,lower.tail = TRUE)
+# reject h0, meaning that the average energy star score has risen since 2014. 
+```
+
+

@@ -1,0 +1,300 @@
+---
+title: "Lecture 9"
+author: "Paul Holaway, Abhi Thanvi"
+date: "July 6th, 2022"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lecture 8 Review
+
+Before we move on to the new material, we will do a quick review of Lecture 8 content. Last time we learned about random number generation, conditionals/loops, and how to use them when creating a custom function. Random number generation is pretty straight forward once you have the syntax, so we will just do a quick review on conditionals/loops and using them in custom functions. Recall last time the grade assignment problem. Normally I do not redo an example, but since we are going to be continuing it today I will to refresh your memory. 
+
+### Example 1; Conditionals/Loops & Custom Functions Review
+
+Let's say you have graded your students' final exams. You have the scores in the computer, but do not want to manually type in all their grades. For now, just assume the course is Pass/Fail, so you just need two options. Say anyone with at least a 70% is a Pass. Let's write an if-else statement to do this. Recall the syntax for this is ...   
+`if (condition){`   
+`expression`   
+`} else {`   
+`expression`   
+`}`
+```{r ex1.1.1}
+score = 80
+if(score >= 70){
+  Result = "Pass"
+} else {
+  Result = "Fail"
+}
+Result
+```
+```{r ex1.1.2}
+
+```
+Now what if the course uses letter grades? recall the `else if` syntax.   
+`if (condition){`   
+`expression`   
+`} else if (condition) {`   
+`expression`   
+`} else {`   
+`expression`   
+`}`   
+You may use as many `else if` as you need. It must though come *after* the initial `if` and *before* the final `else`. For clarification, we will use the following cutoffs for letter grades.
+
+| | A | B | C | D |
+| :--- | :--- | :--- | :--- | :--- |
+| Plus | 99 | 87 | 77 | 67 |
+| Neutral | 93 | 83 | 73 | 63 |
+| Minus | 90 | 80 | 70 | 60 |
+
+```{r ex1.2}
+score = 67
+if(score >= 90){
+  Result = "A"
+} else if (score >= 80){
+  Result = "B"
+} else if (score >= 70){
+  Result = "C"
+} else if (score >= 60){
+  Result = "D"
+}
+if(score %% 10 >= 9){
+  Result = Result + "+"
+} else if (score %% 10 < 3){
+  Result = Result + "-"
+}
+if(score == 100){
+  Result = "A+"
+}
+if (score < 60){
+  Result = "F"
+}
+Result
+```
+\newpage
+Okay, now recall loops. Remember that a loop is used ...
+
+1. When we want to do repetitive actions on observations.
+2. To show how values change over iterations.
+3. Because we want efficient coding.
+4. For more complicated calculations.
+
+Recall the syntax for a `for` loop is ...   
+`for (index in expression){`   
+`expressions`   
+`}`   
+Okay, let's look at using a loop to assign grades. Don't forget to include the `[i]` part after each of the objects you are saving the grades to.
+```{r ex1.3}
+#Setup Code; DO NOT DELETE
+set.seed(143572)
+score = sample(55:100, 10, replace = TRUE)
+Result1 = rep(0,10)
+Result2 = rep(0,10)
+#Loop/Conditional
+for (i in 1:10){
+  if (score[i] >= 70){
+    Result1[i] = "Pass"
+  } else {
+    Result2[i] = "Fail"
+  }
+  
+  if(score[i] >= 90){
+    Result2[i] = "A"
+  } else if (score[i] >= 80){
+    Result2[i] = "B"
+  } else if (score[i] >= 70){
+    Result2[i] = "C"
+  } else if (score[i] >= 60){
+    Result2[i] = "D"
+  }
+  if(score[i] %% 10 >= 7){
+    Result2[i] = paste(Result2[i], sep = "", "+")
+  } else if (score[i] %% 10 < 3){
+    Result2[i] = paste(Result2[i], sep = "", "-")
+  }
+  if(score[i] == 100){
+    Result2[i] = "A+"
+  }
+  if (score[i] < 60){
+    Result2[i] = "F"
+  }
+}
+Result1
+Result2
+```
+Don't feel bad if you have to reread through this a few times to understand it. Loops and conditionals are one of the more difficult topics in this course. You are probably wondering where the functions review is. Well, since we are going to build off of that here, then we will just jump right into the next part of lecture material and mix in some review with it. Okay, now we can move onto the next portion of lecture content.
+
+# Custom Functions in `R` Part II and More Sampling
+
+Today we are going to make some more custom functions, specifically continuing the example from last time. Now making a custom function is useful, knowing how to use it to help you out is equally as useful. In other words, a custom function does not really help you out unless you know how to use it properly. We will explore that today and also one more intricacy of functions. Then to wrap things up, we will look at more sampling features using what we learned last time and with the help of custom functions, make the sampling process much smoother.
+
+## Custom Functions in `R` Part II
+
+Recall that to make a custom function, the general syntax is ...   
+`Name = function(parm1 = ..., parm2 = ..., ...){`   
+`expressions here`   
+`return(What You Want To Calculate)`   
+`}`   
+The expressions will be things like all the loops and conditionals that we were going over in the review example. Now the nice thing about custom functions is that they are super flexible. You can manipulate them anyway you wish and with ease. As I mentioned above, there is one more intricacy of functions. Those are the default arguments. Before we get into that, what is an argument? It is simply what you put into the function. For example, when you use the `sample()` function, you type in three things, the range of numbers, the sample size, and the replacement. These three things are each arguments. A default argument is one that is pre-programmed into a function to be used if you do not type it in with a specific value. If you go to the `sample()` functions help page, you will notice that there is a fourth argument, `prob = ...`. This is for doing sampling with unequal probabilities. By you not using it in the functions, the computer uses the default `prob = ...` for the function of all the probabilities being equal. To set a default argument, simply do `parm = x`, where `x` is the default argument value. Okay, now let's jump into an example to illustrate this.
+
+### Example 2; Final Grades
+
+You are a professor teaching two different courses. Both of your finals have been [graded](https://www.youtube.com/watch?v=LklyOZZJdlk) and you now have your students' final percentages calculated in your spreadsheet. You are almost done for the semester, all you have to do is input the final grades. However, your first course has 135 students, and your second has 279 students. Also, some of the students decided to take the course as Pass/Fail. This is further complicated with your spreadsheet being organized by student ID number. You decide to create a custom function to speed up the process of assigning letter grades. You use the following cutoffs for letter grades as your default ...
+
+| | A | B | C | D |
+| :--- | :--- | :--- | :--- | :--- |
+| Plus | 99 | 87 | 77 | 67 |
+| Neutral | 93 | 83 | 73 | 63 |
+| Minus | 90 | 80 | 70 | 60 |
+
+However, your second course you had to implement the following curve ...
+
+| | A | B | C | D |
+| :--- | :--- | :--- | :--- | :--- |
+| Plus | 95 | 82 | 71 | 60 |
+| Neutral | 89 | 78 | 67 | 56 |
+| Minus | 86 | 75 | 64 | 53 |
+
+You do not normally have to curve your courses, but this time you had no other choice. You still use your default 70% Pass/Fail cutoff for the first course, but lower it to 64% for the second. Using the data below, create a custom function (with defaults) that will assign grades for you.
+```{r ex2_setup}
+#DO NOT DELETE THIS CODE!!
+set.seed(143572)
+grades1 = round(runif(135, min = 65, max = 100), 2)
+pf = c("Letter", "Pass/Fail")
+result1 = sample(pf, 135, replace = TRUE, prob = c(0.95,0.05))
+Course1 = data.frame(grades1,result1)
+library(tidyverse)
+Course1 = Course1 %>% rename(Percentage = "grades1") %>% rename(Grade_Type = "result1")
+set.seed(314439)
+grades2 = round(runif(279, min = 58, max = 95), 2)
+result2 = sample(pf, 279, replace = TRUE, prob = c(0.95,0.05))
+Course2 = data.frame(grades2,result2)
+Course2 = Course2 %>% rename(Percentage = "grades2") %>% rename(Grade_Type = "result2")
+```
+Okay, now let's create a custom function that fits all the criteria above. You do **NOT** have to do something this complicated for your project, this is just to show you what all you can do. 
+```{r ex2.1}
+GradeAssign = function(score, type, A_p = 99, A = 93, A_m = 90, B_p = 87, B = 83, B_m = 80, C_p = 77, C = 73, C_m = 70, D_p = 67, D = 63, D_m = 60){
+  result = rep(0, length(score))
+  for (i in 1:length(score)){
+    if (type[i] == "Pass/Fail"){
+      if (score[i] >= C_m){
+        result[i] = "Pass"
+      } else {
+        result[i] = "Fail"
+      }
+    } else {
+      if(score[i] >= A_p){
+        result[i] = "A+"
+      } else if (score[i] >= A){
+        result[i] = "A"
+      } else if (score[i] >= A_m){
+        result[i] = "A-"
+      } else if (score[i] >= B_p){
+        result[i] = "B+"
+      } else if (score[i] >= B){
+        result[i] = "B"
+      } else if (score[i] >= B_m){
+        result[i] = "B-"
+      } else if (score[i] >= C_p){
+        result[i] = "C+"
+      } else if (score[i] >= C){
+        result[i] = "C"
+      } else if (score[i] >= C_m){
+        result[i] = "C-"
+      } else if (score[i] >= D_p){
+        result[i] = "D+"
+      } else if (score[i] >= D){
+        result[i] = "D"
+      } else if (score[i] >= D_m){
+        result[i] = "D-"
+      } else {
+        result[i] = "F"
+      }
+    }
+  }
+  return(result)
+}
+
+# GradeAssign = function(score, type, grades = c(99, 93, 90, 87, 83, 80, 77, 73, 70, 67, 63, 60)){
+#   result = rep(0, length(score))
+#   for (i in 1:length(score)){
+#     if (type[i] == "Pass/Fail"){
+#       if (score[i] >= grades[9]){
+#         result[i] = "Pass"
+#       } else {
+#         result[i] = "Fail"
+#       }
+#     } else {
+#       letters = c("A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F")
+#       if (score[i] < grades[12]){
+#         result[i] = letters[13]
+#       } else {
+#         for (j in length(grades)){
+#           if(score[i] >= grades[j]){
+#             result[i] = letters[j]
+#           }
+#         }
+#       }
+#     }
+#   }
+#   return(result)
+# }
+```
+That was a lot of work and the function looks really complicated. However, let's see what happens once we use it. Let's start with `Course1`.
+\newpage
+```{r ex2.2.1}
+Course1 = Course1 %>% mutate(Final_Grade = GradeAssign(Percentage, Grade_Type))
+head(Course1, 20)
+```
+Look at that, you just assigned your grades in no time. Make sure you do a cursory glance at the first twenty or so observations to check that your code is running correctly. Do not worry if you do not catch a mistake in your code because your students will. Now let's do `Course2`. Remember that this course had a curve, so you will have to manually type in your new grade cutoffs. Yes you have to do a bit of typing, but it is easier than changing the cutoffs manually in your code.
+```{r ex2.2.2}
+Course2 = Course2 %>% mutate(Final_Grade = GradeAssign(Percentage, Grade_Type, A_p = 95, A = 89, A_m = 86, B_p = 82, B = 78, B_m = 75, C_p = 71, C = 67, C_m = 64, D_p = 60, D = 56, D_m = 53))
+head(Course2, 20)
+```
+Ta da!! A bit more work, but grading is still done *much* faster. That is the whole idea behind custom functions.
+
+## More Sampling
+
+Recall last time how we learned different ways of randomly generating numbers. What will be most useful for us is the random integer generation. We can use this to help us generate random samples from our data set. What we do is ...   
+
+1. Generate random numbers
+2. Filter observations such that the row indexes match the randomly generated numbers
+
+This is pretty simple to do in `RStudio`. Remember, you can use this method as an alternative to the one you learned in our notes on experimental design. You may use the method you prefer.
+
+### Example 3; Sampling Using Indexes
+
+Let's say your department head wants you to randomly sample about ten students from each of your courses for department interviews. There is no selection criteria, it can be any student in your course. We will now select ten students from both courses using this new method. First, generate **TWO** different lists of ten random numbers.
+```{r ex3.1}
+set.seed(143572)
+sample1 = sample(1:135, 10, replace = F)
+set.seed(314439)
+sample2 = sample(1:279, 10, replace = F)
+sample1
+sample2
+```
+Now let's look at the students you are sending to your department for interviewing. We need to create the subset of just the students selected. You can do that using the following code `data[sample,]`. Do **NOT** forget the `,` after the sample name.
+\newpage
+```{r ex3.2}
+S1 = Course1[sample1,]
+S2 = Course2[sample2,]
+S1
+S2
+```
+Uh oh. Looks like by pure chance you are not sending many students with high grades to be interviewed. You are worried that you will get a lot of negative reviews from students, so you "conveniently ensure" the selection process only selects those who pass. What your department head does not know will not hurt them. There are multiple ways to do it, so here is just one.
+```{r ex3.3}
+Course1P = Course1 %>% filter(Percentage >= 70)
+Course2P = Course2 %>% filter(Percentage >= 64)
+sample1P = sample(1:117, 10, replace = F)
+sample2P = sample(1:244, 10, replace = F)
+S1P = Course1P[sample1P,]
+S2P = Course2P[sample2P,]
+S1P
+S2P
+```
+Hopefully this helps you get an understanding of how to use custom functions and uses for random number generation. We covered a lot today, so do not feel bad if you have to reread through the notes a few times. Plus we have lab too. This is the second to last coding heavy topic we have in this course. The last will be Simple Linear Regression (SLR), which is covered in the last lecture. The rest will be more statistical so the coding (on your part) will not be as intense. Next time we will introduce the statistical topic of distributions (types, properties, etc.).
+
+## End of Lecture 9 Notes

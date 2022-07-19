@@ -1,0 +1,152 @@
+---
+title: "Lab Probably II"
+author: "Abhi Thanvi, Paul Holaway"
+date: "June 30th, 2022"
+output: pdf_document
+toc: True
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+\newpage
+
+# Lab Probably II
+
+## Welcome
+
+Just like learning a new spoken language, you will not learn the language without practice. Labs are an important part of this course. Collaboration on labs is **extremely encouraged**. If you find yourself stuck for more than a few minutes, ask a neighbor or course staff for help. When you are giving help to your neighbor, explain the **idea and approach** to the problem without sharing the answer itself so they can figure it out on their own. This will be better for them and for you. For them because it will stick more and they will have a better understanding of the concept. For you because if you can explain it to other students, that means you understand it better too.
+
+## The Idea of this Lab
+
+The idea behind this lab is to get familiar with probability. Probability provides us the information about the likelihood that something will happen or not. For example, Meteorologists use weather patterns to predict the probability of rain. In epidemiology, probability theory is used to understand the relationship between exposures and the risk of health effects. This is considered to be an abstract topic by many statisticians as it is more of computation than conceptual, but we will try to include some foundation conceptual ideas here. This is the sequel to the Lab Probably.
+
+  **"In a room of just 23 people there is a 50% chance of any two sharing a birthday. In a room of 75 people this becomes 99.9%" - Curious Abhi**
+
+## Problem 1: Rules Forever!
+
+Before we start computing probabilities in R, it is a good practice to know how to do probability questions by ourselves. Having a good conceptual foundation of what probability is and why the calculations change based on the problem statement is super crucial. Once we grasp that, doing probability in R should be light work. In this case, think of R as an calculator, it can sometimes help us do messy calculations, but in the end, we should know what we are doing. Let's start!
+
+**Question 1:** If you take out two cards from a regular pack of cards (without replacing), what is probability that you get an ace (first card) and then a king (second card)?
+
+*Hint: Are the events independent?*
+**Answer:** $P(K_2 \cap A_1)=P(K_2|A_1)P(A_1) = \frac{1}{13} * \frac{4}{51} = \frac{4}{663}$
+
+**Question 2:** Billy Bob Joe (one person) observed what customers ordered at his ice cream shop and found the following probabilities: 
+
+1. P(Vanilla) = 0.3
+2. P(Sundae) = 0.2
+3. P(Vanilla and Sundae) = 0.15
+
+*Find the probability that a customer ordered vanilla ice cream given they ordered a sundae*
+
+**Answer:** $P(Vanilla | Sundae) = \frac{P(Vanilla \cap Sundae)}{P(Sundae)} = \frac{0.15}{0.2} = 0.75$
+
+**Question 3:** Paul is interested in [elections](https://www.youtube.com/watch?v=Ll3iyvbsRDM) so he made the following two-way table categorizing the US senators in 2018 by their political party and whether or not it was their first term in the senate.
+
+|      | Democrat| Republican | Independent | **Total** |
+| :--- | :--- | :--- | :--- | :--- |
+| First Term | 11 | 28 | 1 | 40 |
+| Second Term | 33 | 26 | 1 | 60 |
+| **Total** | 44 | 54 | 2 | 100 |
+
+**Find the probability that the senator was in the Democratic party, given that the senator was returning to office.**
+
+*Hint: There are two ways to do it! Intuitive and Calculation Method! Make sure to show the method you choose and it's appropriate work!*
+
+**Answer:** $P(Democrat | Returning) = \frac{P(Democrat \cap Returning)}{P(Returning)} = \frac{\frac{33}{100}}{\frac{60}{100}} = \frac{33}{60}$ 
+
+**Question 4:** Let me throw some curve balls again at you now! I have tossed a regular coin 5 times already, and I have gotten the sequence of $\{Head, Tail, Tail, Tail, Head\}$ for my 5 tosses? Based on the previous 5 tosses, what is the probability that my 6th toss and 7th Toss will look like $\{Tail, Tail\}$? Why do you think your answer is correct?
+
+**Answer:** The probability that the 6th and 7th toss are both Tail is $P(toss_6 = T \cap toss_7 = T ) = (\frac{1}{2})^2 = \frac{1}{4}$, and this answer is correct, because the coin toss results are independent of each other; the first five tosses will not have any influence over the results of the sixth and seventh tosses.
+
+**Question 5:** Well, this is my last shot (again!) to prove myself that I can come up with the hardest probability questions! If you get this one too, I think we will need to celebrate...probability. ;) See what I did there (again)! 
+
+Anyways, I am playing monopoly with my friends and I am stuck in jail. Apparently, my friends are making it hard for me (probably because I own Boardwalk) and told me I can only get out of jail if I roll a twelve two times in a row. They don't know I am like Dr. Strange when it comes to probability, except that I did not mess up the multiverse. But again, I am on a sabbatical when it comes to using my probability powers, kind of like Hulk. So you tell me, what is the probability of me rolling a twelve two times in a row?
+
+**Answer:** $P(twelve, twice) = (P(twelve))^2 = (P(six, twice))^2 = ((P(six))^2)^2 = (P(six))^4 = (\frac{1}{6})^4 = \frac{1}{1296}$
+
+\newpage
+
+## Problem 2
+
+
+### Part 1: What "R" the odds again!?
+
+Unfortunately I lost the last baseball game because my Coach was from Texas but not experienced enough to work with "people like me". Paul has challenged me for another Baseball match, so I need a new coach! I am pretty good at pitching, but need to change my Tennis swing into a baseball swing while batting. I am choosing a Baseball Batter as my coach, and since my last coach didn't work out I am not choosing some batter from a Texas team!
+
+**Question 1:** Import MLB_Batters csv and figure out the probability of choosing a batting coach who is not from Texas team.
+
+**Answer:** 
+```{r}
+# Import the CSV.
+library(tidyverse)
+MLB = MLB_Batters_csv <- read.csv("~/Desktop/DPI 2022/MLB_Batters.csv", stringsAsFactors=TRUE)
+# Filter Out Non Texas Team Players.
+Texan = MLB %>% filter(Team == "TEX" | Team == "HOU")
+# Probability of choosing a person from non Texas Team from the list.
+1 - nrow(Texan)/nrow(MLB)
+```
+
+
+**Question 2:** Based on your probability calculation, do you think it is likely for me to find a coach from a non Texas team? Does this make sense? Justify your response with the response from your previous lab!
+
+*Hint: We are looking for something with sample space total equaling "something"*
+**Answer:**  Based on this calculation, it's very likely to find a coach from a non-Texan team, because the probability of this is about 94%. This makes sense, since there's about 30 teams, and only 2 are from Texas. Also, from last lab, we found that the probability of getting a Texan coach is about 5%, which means that they're pretty rare, so it's unlikely that you'd find one.
+
+**Question 3:** Well, okay so I can definitely find a coach, but I want to make sure I win this time! I think finding a player who is above the age 30. Uhm, let's skip people who are 30...I am desperate for that win! Let's figure out the probability of picking a coach who is not from Texas **AND** is older than 30. 
+
+*Hint: Use the "Non-Texan" data frame to shorten your code*
+**Answer:**
+```{r}
+Non_Texan = MLB %>% filter(Team != "TEX" & Team != "HOU") %>% filter(Age > 30)
+nrow(Non_Texan)/nrow(MLB)
+```
+
+### Part 2: Reflection
+**Question 1:** Of course, the probability of finding a Coach who is not a Texas team player and above 30 is quite low. Do you think this was an Addition Rule or Multiplication Rule?
+
+**Answer:** This was a Multiplication Rule, because you want the probability of a coach who meets the first AND second requirement.
+
+**Question 2:** Do you think that finding the probability of Non Texan player above the age of 30 be easier to do by hand or using `R` (given the table or CSV)? Why do you think so?
+
+**Answer:** It's definitely easier with R, because there are more than a hundred of the players who fit this requirement, and R calculates all of them instantly (whereas I would take way too long to do this).
+
+## Big Brain Bonus
+
+**This question should be filled out, but it is a higher level of thinking question. It involves something that will help you become a better statistician, data analyst and/or data scientist!**
+
+**Question: So I am in a middle of test, and Chegg is not working (I do not endorse it) so I need your help! The question is mysterious...it has mystery numbers! All I know the relation among the probabilities, but not the actual probabilities. I am stuck on what rule to use addition or multiplication. Is the Mystery asking for using addition or multiplication rule? Help me out and give me a reason why you think you are right...just so I can make sure I don't lose points if I use your answer!**
+
+--> Question on my Test : 
+
+P(A) = x  
+
+P(B) = y
+
+P(Mystery) = z
+
+z < x = y
+
+                            The mystery is some event or condition relation to A and B.
+                          
+*Hint: Think about if the probabilities are higher or lower when using addition rule and when using multiplication rule*
+*Feel free to discuss among your group! This is a fun question and promotes exploring!*
+
+**Answer:** This is multiplication rule. This is because we know that $x$ and $y$ are both numbers between 0 and 1 (in other words, they must be 0, 1, or a positive fraction). Using addition rule, adding two positive fractions (or 0 or 1) will result in a sum GREATER THAN OR EQUAL TO each of the original addends. However, using multiplication rule, multiplying two positive fractions (or 0 or 1) will result in a product LESS THAN OR EQUAL TO each of the original multiplicands. Since we know that $z$ is SMALLER than the boolean expression $x = y$, we know that the rule that was applied must have been multiplication rule.
+
+## Feedback
+
+Hey this is Abhi! As this second week comes to an end, I would like to know (again) whether you are liking the course or you hate your summer because of us (hopefully not!). 
+
+Please give some feedback of what you like about the course and what you would like to change about this course! We will try our best to make this the best course and have the best time as much we can! Have a great weekend and Paul and I will see you on the other side :)
+
+**Feedback:** The course is great! I like the lectures a lot. One thing that I had liked a lot (and hope to see a lot more of) is the mathematical part of the lecture, because it helps me understand a lot of what goes behind the scenes in the code, which is really important and useful to understand :)
+
+## Submission
+Once you have finished your lab...
+
+1. Go to the top left and click `File` and `Save`.
+2. Click on the `Knit` button to convert this file to a PDF.
+3. Submit **BOTH** the `.Rmd` file and `.pdf` file to Blackboard by 11:59 PM tonight.

@@ -1,0 +1,148 @@
+---
+title: "Lab Polite Customs"
+author: "Abhi Thanvi, Paul Holaway"
+date: "July 5th, 2022"
+output: pdf_document
+toc: True
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+\newpage
+
+# Lab Polite Customs
+
+## Welcome
+
+Just like learning a new spoken language, you will not learn the language without practice. Labs are an important part of this course. Collaboration on labs is **extremely encouraged**. If you find yourself stuck for more than a few minutes, ask a neighbor or course staff for help. When you are giving help to your neighbor, explain the **idea and approach** to the problem without sharing the answer itself so they can figure it out on their own. This will be better for them and for you. For them because it will stick more and they will have a better understanding of the concept. For you because if you can explain it to other students, that means you understand it better too.
+
+## The Idea of this Lab
+
+The idea behind this lab is to respect the customary steps of learning any [computer science](https://www.youtube.com/watch?v=r7dZKOL5rcg) language. It is to learn loops, if/else statements, and writing your own functions (some languages call it "methods"). This is crucial to learn to write efficient code as these allow you to write logical, non-repetitive, and clean code for others to understand. Just like sharing your analysis, people read your code! When you write good code, people find it easier to understand what you did and really appreciate it. Consider this lab to be the one that gets your feet wet for the "Pure CS" portion of Data Science.
+
+  **"I am not a huge fan of Froot Loops, but I do love writing loops" -  Honest Abhi**
+
+## Problem 1: The Warmup Before Dash!
+
+**Question 1:** We want to calculate the area of a circle, given some of the parameter. Let's just dive in.
+
+**Answer:**
+
+```{r}
+#SETUP DO NOT DELETE
+set.seed(143572)
+radius_seq = sample(1:10,5, replace=FALSE)
+radius_seq
+
+#Create Your Custom Function Here
+CircleArea = function(r) {
+  return(pi * r^2)
+}
+#Use Your Custom Function Here
+CircleArea(radius_seq)
+```
+
+\newpage
+**Question 2:** Write code to generate a sequence of 25 random but unique integers (whole) numbers in the range of 1 - 100. 
+
+**Answer:** 
+
+```{r}
+#DO NOT CHANGE THIS
+set.seed(143572)
+
+#Code Here
+sample(1:100, 25, replace = F)
+```
+
+**Question 3:** Write code to generate a sequence of 25 random but unique numbers in the range of 1 - 100. These do not have to be integers or whole numbers. Make sure to print your results.
+
+**Answer:**
+
+```{r}
+#Code here
+runif(25, 1, 100)
+```
+
+\newpage
+
+## Problem 2: Geometry Dash
+
+**Question 1:** We want to calculate the volume of a cylinder, given the parameters radius and height. Create a custom function that calculates the Volume of a cylinder given those parameters. Make sure to test your function by printing a solution.   
+
+**Answer:**
+
+```{r}
+##Code here
+Cylinder = function(r, h) {
+  return (pi * h * r^2)
+}
+Cylinder(2, 4)
+```
+
+**Question 2:** We are given two coordinates $(x_1, y_1)$ and $(x_2,y_2)$, and we need to calculate the slope m. Write a custom function that takes in $(x_1,x_2,y_1,y_2)$ as its parameter and calculate its slope. There are different ways to code this, it's up to you! Make sure to test your function by printing a solution.
+
+**Answer:**
+
+```{r}
+##Code here
+Slope = function(x1, y1, x2, y2) {
+  return((y2 - y1)/(x2 - x1))
+}
+Slope(2,3,4,5.5)
+```
+
+**Question 3:** We are given a task to print numbers 1-10, but we are not allowed to use `runif()` or `sample()`. Can you code a way to print the sequence of numbers 1-10 (integers). We are looking for a specific type of answer that we learned in lesson. The sequence should be *ascending*.
+
+*Hint: Pay attention to the order of printing, we want ascending*
+
+**Answer:**
+```{r}
+#Code here
+for (i in 1:10){
+  print(i)
+}
+```
+
+**Question 4:** We are given a task to print numbers 1-25 but they should be negative, but we are not allowed to use `runif()` or `sample()`. Can you code a way to print the sequence of negative numbers 1-25 (integers). We are looking for a specific type of answer that we learned in lesson. Oh also, to get you thinking, the sequence should be *ascending*.
+
+*Hint: Pay attention to the order of printing, we want ascending*
+
+**Answer:**
+```{r}
+# Code here
+for (i in -25:-1){
+  print(i)
+}
+```
+
+\newpage
+## Problem 3: Mystery Function
+
+**This question should be filled out, but it is a higher level of thinking question.**
+
+**Question:** 
+```{r}
+#QUESTION DO NOT CHANGE THIS
+Mystery = function(x, y) {
+  prod = x * y
+  if (prod != x*x) {
+    return ("NO")
+  }
+  return ("YES")
+}
+```
+
+*What is the mystery function doing? Justify your reasoning*
+
+**Answer:** (Student Response Here)
+The mystery function first requires the input of two integer values (represented by the parameters $x$ and $y$). Then, the function checks if $x = y$ or $x = 0$, or if neither is true. If either $x = y$ or $x = 0$ is true, then the function returns $YES$. Otherwise, it returns $NO$. The function does this by checking if $xy = xx$ holds true, and this equation is only true when either $x = y$ or $x = 0$.
+
+## Submission
+Once you have finished your lab...
+
+1. Go to the top left and click `File` and `Save`.
+2. Click on the `Knit` button to convert this file to a PDF.
+3. Submit **BOTH** the `.Rmd` file and `.pdf` file to Blackboard by 11:59 PM tonight.
